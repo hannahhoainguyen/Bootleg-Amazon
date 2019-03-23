@@ -1,0 +1,120 @@
+# FINAL PROJECT - CS205
+
+## WEB APP IDEA
+From project description:
+Deliverable I: Project proposal
+This describes the project your team will do and says what language(s) you will use. Due Friday, March 8th, 11:59pm
+
+We intend to do a Web app, a front-end that will do a kind of LAMP/MAMP stack working with one of the databases from the warmup project (or something similar).
+- We'll create a GUI front end that will allow the user to find similar information.
+- We'll use Javascript/CSS for the front end, PHP for the back end, and some kind of SQL (probably MYSQL) for the database.
+- We'll likely host this on silk
+
+## EMAIL FROM JIM EDDY RE: SILK
+Hi Barry,
+Good to hear from you! Check this out: https://silk.uvm.edu/manual/
+
+Jim
+
+## USEFUL LINKS
+<https://stackoverflow.com/questions/3635166/how-to-import-csv-file-to-mysql-table>
+
+## SESSION ON SILK
+
+finn:~ bfsmith9$ ssh bfsmith@w3.uvm.edu
+bfsmith@w3.uvm.edu's password:
+Last login: Mon Mar 11 22:07:48 2019 from silk-gw1.uvm.edu
+This is a second generation UVM silk hosting server.
+For more information, see https://silk.uvm.edu/manual.
+-bash-4.2$ mysql
+ERROR 1045 (28000): Access denied for user 'bfsmith'@'silk21.uvm.edu' (using password: NO)
+-bash-4.2$ mysql -u bfsmith_reader -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 62997094
+Server version: 5.6.39-83.1-log Percona Server (GPL), Release 83.1, Revision da5a1c2923f
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| BFSMITH_STORE      |
+| common_schema      |
++--------------------+
+3 rows in set (0.20 sec)
+
+MySQL [(none)]> USE BFSMITH_STORE;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [BFSMITH_STORE]> show tables;
++-------------------------+
+| Tables_in_BFSMITH_STORE |
++-------------------------+
+| customers               |
++-------------------------+
+1 row in set (0.00 sec)
+
+MySQL [BFSMITH_STORE]> select * from customers;
++------+--------+--------+
+| id   | name   | passwd |
++------+--------+--------+
+|    1 | Chris  | passc  |
+|    2 | Hannah | passh  |
+|    3 | Jared  | passj  |
+|    4 | Barry  | passb  |
++------+--------+--------+
+4 rows in set (0.00 sec)
+
+MySQL [BFSMITH_STORE]>
+
+## TO-DO: CODE-SPECIFIC
+- [x] Change GET to POST if you can
+- [x] Get code on GitHub
+- [x] Try OOP paradigm
+- [ ] Finish up dbase on silk
+- [ ] Upload new code to silk; try it
+- [ ] Find a way to add and delete rows from GUI
+- [ ] Find a way to modify data in cols/rows from GUI
+- [ ] Find a way to have a cart
+- [ ] How would we do search? Select * from table where item like '%something'? Figure out.
+
+## QUESTIONS
+- How do we implement a cart? Just use another dbase table? Maybe something like in a separate table, where each user (they could have a particular ID) could have a record of what they want to purchase.
+- Another way - using a PHP SESSION array variable. <https://www.w3schools.com/php/php_sessions.asp>
+- Here's a way that doesn't use sessions: <https://www.codeofaninja.com/2015/08/simple-php-mysql-shopping-cart-tutorial.html>
+- These all seem very complex - like something you'd do on a job. How simple can I make it?
+    - Need a way users can choose something. Maybe a check box/radio button? (Just one at a time.) Then just find a way to save the ID of that choice. Multiple check boxes - then run a foreach over the listing of items: checkbox = yes or no. Just search php checkbox. <https://stackoverflow.com/questions/4554758/how-to-read-if-a-checkbox-is-checked-in-php>
+
+## MY OWN CART IDEAS
+- Have a radio button on the items package for each rows.
+- Have a button in the row: "Add to shopping cart.
+- Have an indicator showing added - color, something
+- (Could have a box that allows you to pick some number of items)
+- Have a "go to shopping cart" button/links
+- Display what has been chosen
+- If confirmed, delete items from dbase and tot up prices
+- Present a confirmation page: "x has been purchased"
+- If one navigates back to listings, there should be one fewer of purchased items.
+    - What if zero items? Should you have another table with items that need to be stocked?
+
+## PASSING VARIABLES BETWEEN PAGES
+Search php variables "across pages". I'm starting to get that to work with sessions - need to read more about them. How do I drop them?
+
+## MISC URLS
+http://bfsmith.w3.uvm.edu/hello.php
+https://www.php-fig.org/psr/psr-1/
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form
+https://css-tricks.com/php-for-beginners-building-your-first-simple-cms/
+https://duckduckgo.com/?q=how+to+form+action+all+in+same+file+php&t=ffab&ia=web
+https://stackoverflow.com/questions/15130493/php-form-using-the-same-page-after-submittion
+https://stackoverflow.com/questions/23726379/html-form-and-php-function-on-same-file
+https://duckduckgo.com/?q=isset+post+php&t=ffab&ia=web
+https://stackoverflow.com/questions/13045279/if-isset-post
+https://secure.php.net/manual/en/language.oop5.basic.php
