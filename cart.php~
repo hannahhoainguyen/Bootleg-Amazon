@@ -1,0 +1,42 @@
+<?php
+session_start();
+print_r($_SESSION);
+include('BootlegZon.php');
+
+$username = $_SESSION['uname'];
+$kitty = $_SESSION['toonses'];
+?>
+
+<html lang="en">
+
+  <head>
+    <title>Rockingham Random-Salt Repo Cart</title>
+  </head>
+
+  <body>
+    <?php
+
+    echo "Hello, this is the cart, " . $username . "<br>";
+    echo "And here is the identity of toonses, " . $kitty . "<br>";
+    echo "Hello again.<br>";
+
+    #if (isset($_POST['Headphones'])) {
+    #    echo "So you want headphones?";
+    #}
+
+    $obj = new BootlegZon();
+      $obj->user = 'root';
+      $obj->password = 'root';
+      $obj->dbase = 'store';
+      $obj->host = 'localhost';
+      $obj->port = 8889;
+      // Don't really need to do this in cart. Causing error
+      $obj->table = 'customers';
+      $obj->connDB();
+      $obj->table = 'merchandise';
+      $obj->showCart();
+      session_destroy();
+     ?>
+
+  </body>
+</html>
