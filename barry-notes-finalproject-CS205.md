@@ -135,13 +135,30 @@ REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls
 REST is not a "standard". There will never be a W3C recommendation for REST, for example. And while there are REST programming frameworks, working with REST is so simple that you can often "roll your own" with standard library features in languages like Perl, Java, or C#.
 
 ## MISC URLS
-http://bfsmith.w3.uvm.edu/hello.php
-https://www.php-fig.org/psr/psr-1/
-https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form
-https://css-tricks.com/php-for-beginners-building-your-first-simple-cms/
-https://duckduckgo.com/?q=how+to+form+action+all+in+same+file+php&t=ffab&ia=web
-https://stackoverflow.com/questions/15130493/php-form-using-the-same-page-after-submittion
-https://stackoverflow.com/questions/23726379/html-form-and-php-function-on-same-file
-https://duckduckgo.com/?q=isset+post+php&t=ffab&ia=web
-https://stackoverflow.com/questions/13045279/if-isset-post
-https://secure.php.net/manual/en/language.oop5.basic.php
+<http://bfsmith.w3.uvm.edu/hello.php>
+
+<https://www.php-fig.org/psr/psr-1/>
+
+<https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/>
+
+#### How_to_structure_an_HTML_form
+<https://css-tricks.com/php-for-beginners-building-your-first-simple-cms/>
+
+<https://duckduckgo.com/?q=how+to+form+action+all+in+same+file+php&t=ffab&ia=web>
+
+<https://stackoverflow.com/questions/15130493/php-form-using-the-same-page-after-submittion>
+
+<https://stackoverflow.com/questions/23726379/html-form-and-php-function-on-same-file>
+
+<https://duckduckgo.com/?q=isset+post+php&t=ffab&ia=web>
+
+<https://stackoverflow.com/questions/13045279/if-isset-post>
+
+<https://secure.php.net/manual/en/language.oop5.basic.php>
+
+#### CSS image grid links, etc.
+<https://medium.freecodecamp.org/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c>
+
+<https://internetingishard.com/html-and-css/advanced-positioning/>
+
+*This one looks useful* <https://www.w3schools.com/css/css3_images.asp>
