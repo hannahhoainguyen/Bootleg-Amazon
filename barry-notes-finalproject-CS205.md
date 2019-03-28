@@ -88,6 +88,7 @@ MySQL [BFSMITH_STORE]>
 - [x] Change name of LoginArea to something more generic?
 - [x] Make sure we really have "RESTful API" - not familiar enough with definition (yes, I think we're good - more in notes below). <https://restfulapi.net/>
 <https://stackoverflow.com/questions/551933/can-you-explain-the-web-concept-of-restful>
+- [ ] Need to switch around the order of the pages on the site - i.e., you'll start by logging into the "merchandise" page, and the login will be something you access from the top.
 
 ## QUESTIONS
 - How do we implement a cart? Just use another dbase table? Maybe something like in a separate table, where each user (they could have a particular ID) could have a record of what they want to purchase.
@@ -115,6 +116,29 @@ Search php variables "across pages". I'm starting to get that to work with sessi
 - Looks like I should be giving each checkbox a checkbox *name*, and from that I should be able to choose an item.
 - Links:
     - <https://www.sitepoint.com/community/t/how-to-insert-checkbox-value-to-database/3625>
+
+## SOME KIND OF "GALLERY" LAYOUT
+Look at this: <https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive>. Could do something like the following, using a similar "while" or "foreach" like you're doing now. Essentially the idea is "for each" row in merchandise, print out its name, price, and the link to its picture, which will be located in the images/ directory in the same space.
+```
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+```
 
 ## NOTES
 
