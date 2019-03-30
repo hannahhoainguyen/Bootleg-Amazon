@@ -19,6 +19,8 @@ $_SESSION['toonses'] = $animal;
     if (isset($_POST["uname"])) {
       $username = $_POST["uname"];
       echo "<i>" . $username . "</i> is logged in. <p>";
+      echo '<a href="logout.php" >Logout</a><p>';
+
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';
@@ -26,7 +28,7 @@ $_SESSION['toonses'] = $animal;
       $obj->host = '132.198.101.199';
       $obj->port = 3306;
       $obj->table = 'customers';
-      $obj->connDB();
+      #$obj->connDB();
       $obj->table = 'merchandise';
       $_SESSION['uname'] = $_POST[uname];
 
@@ -43,7 +45,7 @@ $_SESSION['toonses'] = $animal;
       $obj->host = '132.198.101.199';
       $obj->port = 3306;
       $obj->table = 'customers';
-      $obj->connDB();
+      #$obj->connDB();
       $obj->table = 'merchandise';
       $obj->showMerch();
 

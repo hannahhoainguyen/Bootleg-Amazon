@@ -23,7 +23,7 @@ class BootlegZon {
         echo "<h3><i>Testing PHP for CS205 Final Project</i></h3>";
 	echo "<hr><br>";
 
-	echo "<form action=\"\" method=\"POST\" id='inputForm' name=\"userLogin\">";
+	echo "<form action=\"StoreFront.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
 	echo "<legend>Rockingham Store Login Page</legend>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
@@ -64,6 +64,7 @@ class BootlegZon {
 
         if ($continue == FALSE){
             echo "Username/password combination not in system.";
+            header("Location: BadUserPassword.php");
             /* Do something like (one possibility):
 
              * $URL = 'baduser_pw.php';

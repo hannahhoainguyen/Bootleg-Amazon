@@ -1,5 +1,8 @@
 # MYSQL GENERAL
 
+## LOGGING IN TO DBASE ON CL (HERE, UVM'S SILK SERVER)
+-bash-4.2$ mysql -u bfsmith_reader -p
+
 ## CREATE DATABASE
 mysql> CREATE DATABASE mydomain;
 Query OK, 1 row affected (0.00 sec)
@@ -21,6 +24,7 @@ Query OK, 1 row affected (0.00 sec)
 
 ## SELECT STATEMENT
 mysql> SELECT * FROM pet;
+````
 +----------+-------+---------+------+------------+-------+
 | name     | owner | species | sex  | birth      | death |
 +----------+-------+---------+------+------------+-------+
@@ -28,6 +32,7 @@ mysql> SELECT * FROM pet;
 | Libby    | Diane | dog     | f    | 2001-04-15 | NULL  |
 +----------+-------+---------+------+------------+-------+
 2 rows in set (0.00 sec)
+````
 
 ## QUIT
 mysql> quit
@@ -41,7 +46,7 @@ mysql> update MERCHANDISE SET COST = '489000002237' WHERE ITEMNO = 3;
 <http://www.mysqltutorial.org/mysql-update-data.aspx>
 
 ## SHOW SCHEMA
-desc <table>;
+desc name-of-your-table;
 
 ## COPY A DATABASE
 <http://www.mysqltutorial.org/mysql-copy-database/>
@@ -61,7 +66,7 @@ If you forget the root password:
 mysqld --skip-grant-tables --user=root
 
 Go back into MySQL with the client:
-
+````
 [root@host root]# mysql
 Welcome to the MySQL monitor.  Commands end with ; or g.
 Your MySQL connection id is 1 to server version: 3.23.41
@@ -79,17 +84,20 @@ mysql> flush privileges;
 Query OK, 0 rows affected (0.01 sec)
 mysql> exit;
 [root@host root]#killall mysqld
-
+````
 (From page http://www.netadmintools.com/art90.html)
 
 ------------------------------------------------------------
 Resetting a password:
 
-1. From Unix:
+From Unix:
+ ```
 	shell> mysql -u username -h hostname -p password
 	mysql> SET PASSWORD FOR username@localhost=PASSWORD('new_password');
+```
 
-2. Add a user with full privileges:
+Add a user with full privileges:
+````
 USE mysql;
 	mysql> GRANT ALL PRIVILEGES ON *.* TO myUser@localhost
                IDENTIFIED BY 'pass' WITH GRANT OPTION;
@@ -97,7 +105,7 @@ USE mysql;
                IDENTIFIED BY 'some_pass' WITH GRANT OPTION;
 
 This is for: A full superuser who can connect to the server from anywhere, but who must use a password 'pass' to do so. GRANT statements should be for both myUser@localhost and myUser@"%". to prevent the anonymous user entry for localhost take precedence.
-
+````
 (From <http://www-css.fnal.gov/dsg/external/freeware/mysqlAdmin.html>)
 
 For root - can try: SET password=password("password")
