@@ -87,14 +87,15 @@ class BootlegZon {
         //display table headers
         echo "<tr>
         <th>Choose</th>
-        <th>Item Number</th>
+        <th>ID</th>
         <th>Item</th>
         <th>Cost</th>
-        <th>Items in Stock</th>
+        <th>Quantity in Stock</th>
         <th>Detail</th>
+        <th>Image</th>
         </tr>";
 
-        $this->table = 'merchandise';
+        $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
         $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
         if (mysqli_num_rows($items) > 0) {
@@ -102,11 +103,12 @@ class BootlegZon {
             while($row = mysqli_fetch_assoc($items)) {
                 echo "<tr>"
 		    ."<td><input type=\"checkbox\" name=" .$row[item] .  "/>&nbsp;</td>"
-		    ."<td>".$row[itemno]."</td>"
-		    ."<td>".$row[item]."</td>"
-		    ."<td>" .$row[cost]. "</td>"
-		    ."<td>".$row[avail]."</td>"
-		    ."<td>".$row[detail]."</td>"
+		    ."<td>".$row[ID]."</td>"
+		    ."<td>".$row[Item]."</td>"
+		    ."<td>" .$row[Cost]. "</td>"
+		    ."<td>".$row[Quantity]."</td>"
+		    ."<td>".$row[Detail]."</td>"
+            .'<td><img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/></td>'
 		    ."</tr>";
             }
         }

@@ -16,6 +16,8 @@ $_SESSION['toonses'] = $animal;
     include('BootlegZon.php');
     $obj = new BootlegZon();
     if (isset($_POST["uname"])) {
+      $username = $_POST["uname"];
+      echo "<i>" . $username . "</i> is logged in. <p>";
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';
@@ -31,7 +33,19 @@ $_SESSION['toonses'] = $animal;
 
     }
     else {
-      $obj->displayLogin();
+      echo "<i>Users can log in at a link coming soon!</i> <p>";
+      $obj->displayProcessing();
+      $obj->user = 'bfsmith_reader';
+      $obj->password = 'Xm8av2CKT7rSG2k7';
+      $obj->dbase = 'BFSMITH_STORE';
+      $obj->host = '132.198.101.199';
+      $obj->port = 3306;
+      $obj->table = 'customers';
+      $obj->connDB();
+      $obj->table = 'merchandise';
+      $obj->showMerch();
+
+      #$obj->displayLogin();
     }
 
 
