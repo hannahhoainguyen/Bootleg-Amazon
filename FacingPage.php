@@ -34,6 +34,7 @@ $_SESSION['toonses'] = $animal;
     }
     else {
       echo "<i>Users can log in at a link coming soon!</i> <p>";
+      echo '<a href = "simple_login.php">Sign in</a>';
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';

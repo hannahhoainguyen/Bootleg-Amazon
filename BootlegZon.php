@@ -4,7 +4,9 @@
 $animal = "cat";
 #$_SESSION['uname'] = $_POST[uname];
 #$_SESSION['toonses'] = $animal;
- print_r($_SESSION);
+
+## Confusing that this happens - the print_r. Not sure why yet. Is it because I'm inluding? It's not part of the class...
+# print_r($_SESSION);
 
 class BootlegZon {
 
