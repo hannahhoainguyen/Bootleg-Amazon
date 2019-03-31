@@ -23,7 +23,7 @@ class BootlegZon {
         echo "<h3><i>Testing PHP for CS205 Final Project</i></h3>";
 	echo "<hr><br>";
 
-	echo "<form action=\"StoreFront.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
+	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
 	echo "<legend>Rockingham Store Login Page</legend>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
@@ -47,6 +47,7 @@ class BootlegZon {
 
         $username = $_POST[uname];
         $upasswd = $_POST[upasswd];
+        $this->table = 'customers';
         #$username = 'barry';
         #$upasswd = 'passb';
         if (mysqli_connect_errno()) {
@@ -59,11 +60,12 @@ class BootlegZon {
 
         if (mysqli_num_rows($credentials) > 0) {
             echo "Status: User <i> ".$username. " </i> is now logged in.";
-            $continue = TRUE;
+            $this->continue = TRUE;
         }
 
-        if ($continue == FALSE){
-            echo "Username/password combination not in system.";
+        if ($this->continue == FALSE){
+            # echo "Username/password combination not in system.";
+            session_destroy();
             header("Location: BadUserPassword.php");
             /* Do something like (one possibility):
 

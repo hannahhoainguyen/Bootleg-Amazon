@@ -112,6 +112,12 @@ MySQL [BFSMITH_STORE]>
 ## PASSING VARIABLES BETWEEN PAGES
 Search php variables "across pages". I'm starting to get that to work with sessions - need to read more about them. How do I drop them?
 
+## PASSING OBJECT BETWEEN PAGES
+When I pass the object variable between pages, depending on where I am I may need to switch the table - i.e., go from customers to merchandise. I can either try to do that, or have an extra property, like customerTable (and therefore merchTable).
+
+## PROBLEM WITH FORM ACTION
+When I try to sign in on the SimpleLogin page, it just skips over the if-statement, going directly to the storefront, without going through connDB. How do I get to go through connDB? Do I need to make it jump to yet another page? Or can I simply give it a function name as an action? (Think I need to do the former.)
+
 ## WORKING WITH CHECKBOXES
 - Looks like I should be giving each checkbox a checkbox *name*, and from that I should be able to choose an item.
 - Links:
@@ -181,6 +187,8 @@ REST is not a "standard". There will never be a W3C recommendation for REST, for
 <https://secure.php.net/manual/en/language.oop5.basic.php>
 
 #### CSS image grid links, etc.
+- Search css layout image placement
+
 <https://medium.freecodecamp.org/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c>
 
 <https://internetingishard.com/html-and-css/advanced-positioning/>

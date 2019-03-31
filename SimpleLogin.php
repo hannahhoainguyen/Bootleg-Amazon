@@ -5,7 +5,7 @@ session_start();
 $obj = $_SESSION['object'];
 #$obj->displayProcessing();
 $obj->displayLogin();
-$obj->connDB();
+# $obj->table = 'customers';
 
 
 ?>
