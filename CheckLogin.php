@@ -16,6 +16,6 @@ $obj->connDB();
 $_SESSION['uname'] = $_POST[uname];
 #header("Location: StoreFront.php");
 #$obj->showMerch();
-echo '<p><a href="StoreFront.php" >Back to store</a><p>';
+echo '<p><a href="StoreFront.php">Back to store</a><p>';
 
 ?>

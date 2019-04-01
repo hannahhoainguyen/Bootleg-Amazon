@@ -20,7 +20,7 @@ class BootlegZon {
 
     public function displayLogin() {
         echo "<h1>Rockingham Random-Salt Repo</h1>";
-        echo "<h3><i>Testing PHP for CS205 Final Project</i></h3>";
+        echo "<h3><i>Beta Website for CS205 Final Project</i></h3>";
 	echo "<hr><br>";
 
 	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
