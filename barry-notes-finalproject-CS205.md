@@ -89,6 +89,7 @@ MySQL [BFSMITH_STORE]>
 - [x] Make sure we really have "RESTful API" - not familiar enough with definition (yes, I think we're good - more in notes below). <https://restfulapi.net/>
 <https://stackoverflow.com/questions/551933/can-you-explain-the-web-concept-of-restful>
 - [ ] Need to switch around the order of the pages on the site - i.e., you'll start by logging into the "merchandise" page, and the login will be something you access from the top.
+- [ ] See if you can resize pix w/ a command. Search resize php base64_encode. See https://stackoverflow.com/questions/50775658/resize-or-crop-base64-images-using-php
 
 ## QUESTIONS
 - How do we implement a cart? Just use another dbase table? Maybe something like in a separate table, where each user (they could have a particular ID) could have a record of what they want to purchase.
