@@ -6,12 +6,12 @@ $animal = "cat";
 $_SESSION['toonses'] = $animal;
 ?>
   <head>
-    <title>Rockingham Random-Salt Repo</title>
+    <title>Nebula Knick-Knacks</title>
   </head>
 
   <body>
-  <h1>Rockingham Random-Salt Repo</h1>
-  <h3><i>Beta Website for CS205 Final Project</i></h3>
+  <h1>Nebula Knick-Knacks</h1>
+  <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
 
     <?php
 #ini_set('display_errors',1);

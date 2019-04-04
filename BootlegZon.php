@@ -19,8 +19,8 @@ class BootlegZon {
     var $table;
 
     public function displayLogin() {
-        echo "<h1>Rockingham Random-Salt Repo</h1>";
-        echo "<h3><i>Beta Website for CS205 Final Project</i></h3>";
+        echo "<h1>Nebula Knick-Knacks</h1>";
+        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
 	echo "<hr><br>";
 
 	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
@@ -82,6 +82,8 @@ class BootlegZon {
 
     } // end connDB
 
+    # Function that shows table of images/info on page
+    # Notice how PHP is just echoing HTML throughout this code.
     public function showMerch() {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         //display the records in a table
@@ -89,7 +91,7 @@ class BootlegZon {
         echo "<h3>Merchandise:</h3>";
         echo "<table border = '1'>";
 
-        //display table headers
+        //Display table headers
         echo "<tr>
         <th>Choose</th>
         <th>ID</th>
@@ -103,8 +105,14 @@ class BootlegZon {
         $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
         $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
         if (mysqli_num_rows($items) > 0) {
-        // Print out the items
+
+            /* This while-loop prints out the items, as can be seen
+             * from the HTML below. As long as there's a row with
+             * data in it in the table, it will print it out.
+             * We can easily incorporate CSS into this.
+             */
             while($row = mysqli_fetch_assoc($items)) {
                 echo "<tr>"
 		    ."<td><input type=\"checkbox\" name=" .$row[item] .  "/>&nbsp;</td>"
