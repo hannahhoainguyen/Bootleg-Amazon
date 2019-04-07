@@ -15,6 +15,10 @@ Database changed
 mysql> CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
 Query OK, 0 rows affected (0.01 sec)
 
+## ADD COLUMN
+ALTER TABLE vendors
+ADD COLUMN vendor_group INT NOT NULL;
+
 ## INSERT DATA INTO TABLE
 mysql> INSERT INTO pet VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);
 Query OK, 1 row affected (0.00 sec)

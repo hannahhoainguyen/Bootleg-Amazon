@@ -1,15 +1,19 @@
 <?php
 #session_start();
+/* BARRY SMITH CS205 FINAL PROJECT */
 
+/* This is the file that contains the one class used by our online store project for CS205. It has methods in it for logging in, connecting to our database as a user, displaying the main page, and displaying the shopping cart.
+*/
+
+# Testing sessions. We need a session to keep a user "live" and logged in across web pages.
 $animal = "cat";
 #$_SESSION['uname'] = $_POST[uname];
 #$_SESSION['toonses'] = $animal;
-
-## Confusing that this happens - the print_r. Not sure why yet. Is it because I'm inluding? It's not part of the class...
 # print_r($_SESSION);
 
 class BootlegZon {
 
+    # CLASS PROPERTIES
     var $user;
     var $password;
     var $dbase;
@@ -18,6 +22,7 @@ class BootlegZon {
     var $continue;
     var $table;
 
+    # CLASS METHODS BELOW HERE ---------------
     public function displayLogin() {
         echo "<h1>Nebula Knick-Knacks</h1>";
         echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
@@ -36,11 +41,11 @@ class BootlegZon {
 	} // end displayLogin function
 
 
+    # This is only used to start a new html page.
     public function displayProcessing() {
-        # Looks like I'm just using this to start a new html page.
-	} // end displayProcessing
+	}
 
-
+    # Method to connect to dbase and authenticate users
     public function connDB() {
 
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
@@ -51,9 +56,10 @@ class BootlegZon {
         #$username = 'barry';
         #$upasswd = 'passb';
         if (mysqli_connect_errno()) {
-            printf("What? Connect error: %s\n", mysqli_connect_errno());
+            printf("Attention - connect error: %s\n", mysqli_connect_errno());
             exit();
         }
+        # The continue variable - only true is user has been authenticated
         $this->continue = FALSE;
         $query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
         $credentials = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -63,19 +69,12 @@ class BootlegZon {
             $this->continue = TRUE;
         }
 
+        /* If user wasn't authenticated, then destroy the session so the user is effectively removed from memory, and then send user to a "bad password" page that shows them what happened and allows them to return to the main page.
+         */
         if ($this->continue == FALSE){
             # echo "Username/password combination not in system.";
             session_destroy();
             header("Location: BadUserPassword.php");
-            /* Do something like (one possibility):
-
-             * $URL = 'baduser_pw.php';
-             * header("Location: $URL");
-             return;
-
-             Put some kind of return button in here. This brings user to a
-             separate web page.
-            */
         }
 
         mysqli_free_result($credentials);
@@ -136,6 +135,7 @@ class BootlegZon {
 
     } // end showMerch function
 
+    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items.
     public function showCart() {
         #$username = $_POST[uname];
         #echo "Here is your cart, " . $username;
