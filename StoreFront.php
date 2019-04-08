@@ -49,8 +49,8 @@ session_start();
 
     # Set up main page when a user is *not* logged in
     else {
-      echo "<i>Users can create an account at a link coming soon!</i> <p>";
-      echo '<a href = "SimpleLogin.php">Sign in</a><br>';
+      echo '<a href = "SimpleLogin.php">Sign in</a><p>';
+      echo '<a href = "SimpleSignUp.php">Create a new account</a><p>';
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';

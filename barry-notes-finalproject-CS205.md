@@ -147,6 +147,10 @@ Look at this: <https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gal
 </div>
 ```
 
+## CHRIS'S CODE TO ADD USERS
+INSERT INTO `customers` (`id`, `name`, `passwd`) VALUES (NULL, ’X', ‘Y’);
+** Change X and Y to user inputed name and password respectively
+
 ## NOTES
 
 ### What is REST?
