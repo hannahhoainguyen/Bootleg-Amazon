@@ -103,6 +103,45 @@ class BootlegZon {
 
     } // end connDB
 
+
+    # Method to connect to dbase and authenticate users
+    public function addCustomer() {
+
+        $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
+
+        $username = $_POST[uname];
+        $upasswd = $_POST[upasswd];
+        $this->table = 'customers';
+        #$username = 'barry';
+        #$upasswd = 'passb';
+        if (mysqli_connect_errno()) {
+            printf("Attention - connect error: %s\n", mysqli_connect_errno());
+            exit();
+        }
+        # The continue variable - only true is user has been authenticated
+        $query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
+        $queryNewCustomer = "INSERT INTO " . $this->table." VALUES (NULL, ’X', ‘Y’)";
+        $credentials = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+
+        mysqli_free_result($credentials);
+
+/* COMMAND TO ADD USER FROM CHRIS E
+INSERT INTO `customers` (`id`, `name`, `passwd`) VALUES (NULL, ’X', ‘Y’);
+ALSO: this works - with *writer*:
+MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
+* Change X and Y to user inputed name and password respectively
+* Need to get ID for user. Just get number rows of table, and add one. No need -
+* can just add NULL, like Chris said, and it will automatically update.
+* See what kind of access I need. Write or admin? Can I change to that here?
+*/
+
+    } // end addCustomer
+
+
+
+
+
     # Function that shows table of images/info on page
     # Notice how PHP is just echoing HTML throughout this code.
     public function showMerch() {

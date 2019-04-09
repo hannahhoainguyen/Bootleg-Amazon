@@ -58,6 +58,15 @@ Basically, you just make a new database within mysql, and then run the following
 /Applications/MAMP/Library/bin/mysqldump  -uroot -proot store > ~/cs205/final-project/store.sql
 /Applications/MAMP/Library/bin/mysql  -uroot -proot test_store < ~/cs205/final-project/store.sql
 
+## GET NUMBER OF ROWS IN A TABLE
+MySQL [BFSMITH_STORE]> select count(*) from customers;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.01 sec)
+
 ## SOME LINUX-SPECIFIC INSX (DEBIAN)
 Start mysql:
 /etc/init.d/mysql start
