@@ -135,8 +135,8 @@ class BootlegZon {
              * We can easily incorporate CSS into this.
              */
             while($row = mysqli_fetch_assoc($items)) {
-                echo "<tr>"
-		    ."<td><input type=\"checkbox\" name=" .$row[item] .  "/>&nbsp;</td>"
+            echo "<tr>"
+		    ."<td><input type=\"checkbox\" name='checkbox[]' ></td>"
 		    ."<td>".$row[ID]."</td>"
 		    ."<td>".$row[Item]."</td>"
 		    ."<td>" .$row[Cost]. "</td>"

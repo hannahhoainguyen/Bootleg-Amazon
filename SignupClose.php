@@ -8,5 +8,13 @@ $obj = $_SESSION['object'];
 echo "Signup Completion Page<p><p>";
 # $obj->connDB();
 $_SESSION['uname'] = $_POST[uname];
+$pw1 = $_POST[upasswd];
+$pw2 = $_POST[upasswd2];
+
+if ($pw1 != $pw2) {
+    session_destroy();
+    header("Location: BadUserPassword.php");
+
+}
 echo '<p><a href="StoreFront.php">Back to store</a><p>';
 ?>
