@@ -16,7 +16,9 @@ if ($pw1 != $pw2) {
     header("Location: BadUserPassword.php");
 }
 else {
-    
+    $obj->addCustomer();
+    echo "This is who I am now: " . $obj->user;
+
 }
 echo '<p><a href="StoreFront.php">Back to store</a><p>';
 ?>

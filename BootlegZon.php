@@ -107,23 +107,29 @@ class BootlegZon {
     # Method to connect to dbase and authenticate users
     public function addCustomer() {
 
+        # Change to MySQL-user "bfsmith_writer" so that we can
+        # update dbase
+        $this->user = 'bfsmith_writer';
+        $this->password = 'd7WJWjLABFHzCqv8';
+        
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
 
         $username = $_POST[uname];
         $upasswd = $_POST[upasswd];
         $this->table = 'customers';
-        #$username = 'barry';
-        #$upasswd = 'passb';
         if (mysqli_connect_errno()) {
             printf("Attention - connect error: %s\n", mysqli_connect_errno());
             exit();
         }
-        $query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
-        $queryNewCustomer = "INSERT INTO " . $this->table." VALUES (NULL, ’X', ‘Y’)";
-        $credentials = mysqli_query($conn, $query) or die(mysqli_error($conn));
-
+        #$query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
+        $queryNewCustomer = "Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
+        mysqli_query($conn, $queryNewCustomer) or die(mysqli_error($conn));
 
         mysqli_free_result($credentials);
+
+        # Change back to MySQL-user "bfsmith_reader" for stability
+        $this->user = 'bfsmith_reader';
+        $this->password = 'Xm8av2CKT7rSG2k7';
 
 /* COMMAND TO ADD USER FROM CHRIS E
 INSERT INTO `customers` (`id`, `name`, `passwd`) VALUES (NULL, ’X', ‘Y’);
