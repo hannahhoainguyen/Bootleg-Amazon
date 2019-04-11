@@ -125,7 +125,7 @@ class BootlegZon {
         $queryNewCustomer = "Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
         mysqli_query($conn, $queryNewCustomer) or die(mysqli_error($conn));
 
-        mysqli_free_result($credentials);
+        # mysqli_free_result($credentials);
 
         # Change back to MySQL-user "bfsmith_reader" for stability
         $this->user = 'bfsmith_reader';
