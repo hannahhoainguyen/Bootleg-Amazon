@@ -106,6 +106,9 @@ MySQL [BFSMITH_STORE]>
 - Have a "go to shopping cart" button/links
 - Display what has been chosen
 - If confirmed, delete items from dbase and tot up prices
+    - Don't necessarily have to allow more than one item to get purchased - could make that a "nice to have."
+    - If I were to do that, I could have some kind of form button, added to the row. Whatever number the customer puts in, I could save that in a session var. When I get to the cart, just subtract it from the total. (If it's too much - I need some place to make comparisons...where to do that?)
+    - Pseudocode: if checkbox is selected, desired amount is whatever is in the numeric input box.
 - Present a confirmation page: "x has been purchased"
 - If one navigates back to listings, there should be one fewer of purchased items.
     - What if zero items? Should you have another table with items that need to be stocked?
@@ -199,3 +202,5 @@ REST is not a "standard". There will never be a W3C recommendation for REST, for
 <https://internetingishard.com/html-and-css/advanced-positioning/>
 
 *This one looks useful* <https://www.w3schools.com/css/css3_images.asp>
+
+<https://stackoverflow.com/questions/51006001/css-grid-image-gallery-how-to-resize-all-images-to-be-the-same-size-and-maintai>

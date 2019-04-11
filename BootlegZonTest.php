@@ -1,19 +1,15 @@
 <?php
 #session_start();
-/* BARRY SMITH CS205 FINAL PROJECT */
 
-/* This is the file that contains the one class used by our online store project for CS205. It has methods in it for logging in, connecting to our database as a user, displaying the main page, and displaying the shopping cart.
-*/
-
-# Testing sessions. We need a session to keep a user "live" and logged in across web pages.
 $animal = "cat";
 #$_SESSION['uname'] = $_POST[uname];
 #$_SESSION['toonses'] = $animal;
+
+## Confusing that this happens - the print_r. Not sure why yet. Is it because I'm inluding? It's not part of the class...
 # print_r($_SESSION);
 
-class BootlegZon {
+class BootlegZonTest {
 
-    # CLASS PROPERTIES
     var $user;
     var $password;
     var $dbase;
@@ -22,7 +18,6 @@ class BootlegZon {
     var $continue;
     var $table;
 
-    # CLASS METHODS BELOW HERE ---------------
     public function displayLogin() {
         echo "<h1>Nebula Knick-Knacks</h1>";
         echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
@@ -37,37 +32,15 @@ class BootlegZon {
 	echo "</fieldset>";
 	echo "</form>";
 
+	#FORMDATA;
 	} // end displayLogin function
 
 
-
-    public function displaySignUp() {
-        echo "<h1>Nebula Knick-Knacks</h1>";
-        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
-	echo "<hr><br>";
-
-	echo "<form action=\"SignupClose.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
-	echo "<fieldset>";
-	echo "<legend>Nebula Knick-Knacks Signup Page</legend>";
-	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
-    echo "<p>";
-	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
-    echo "<br>";
-	echo "<label for=\"name\">Repeat password:</label><input type='password' id=\"upasswd2\" name='upasswd2'>";
-	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
-	echo "</fieldset>";
-	echo "</form>";
-
-	} // end displayLogin function
-
-
-
-
-    # This is only used to start a new html page.
     public function displayProcessing() {
-	}
+        # Looks like I'm just using this to start a new html page.
+	} // end displayProcessing
 
-    # Method to connect to dbase and authenticate users
+
     public function connDB() {
 
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
@@ -78,10 +51,9 @@ class BootlegZon {
         #$username = 'barry';
         #$upasswd = 'passb';
         if (mysqli_connect_errno()) {
-            printf("Attention - connect error: %s\n", mysqli_connect_errno());
+            printf("What? Connect error: %s\n", mysqli_connect_errno());
             exit();
         }
-        # The continue variable - only true is user has been authenticated
         $this->continue = FALSE;
         $query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
         $credentials = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -91,55 +63,24 @@ class BootlegZon {
             $this->continue = TRUE;
         }
 
-        /* If user wasn't authenticated, then destroy the session so the user is effectively removed from memory, and then send user to a "bad password" page that shows them what happened and allows them to return to the main page.
-         */
         if ($this->continue == FALSE){
             # echo "Username/password combination not in system.";
             session_destroy();
             header("Location: BadUserPassword.php");
+            /* Do something like (one possibility):
+
+             * $URL = 'baduser_pw.php';
+             * header("Location: $URL");
+             return;
+
+             Put some kind of return button in here. This brings user to a
+             separate web page.
+            */
         }
 
         mysqli_free_result($credentials);
 
     } // end connDB
-
-
-    # Method to connect to dbase and authenticate users
-    public function addCustomer() {
-
-        $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
-
-        $username = $_POST[uname];
-        $upasswd = $_POST[upasswd];
-        $this->table = 'customers';
-        #$username = 'barry';
-        #$upasswd = 'passb';
-        if (mysqli_connect_errno()) {
-            printf("Attention - connect error: %s\n", mysqli_connect_errno());
-            exit();
-        }
-        $query = "Select * FROM ".$this->table." WHERE name = '".$username."' AND passwd = '".$upasswd."';";
-        $queryNewCustomer = "INSERT INTO " . $this->table." VALUES (NULL, ’X', ‘Y’)";
-        $credentials = mysqli_query($conn, $query) or die(mysqli_error($conn));
-
-
-        mysqli_free_result($credentials);
-
-/* COMMAND TO ADD USER FROM CHRIS E
-INSERT INTO `customers` (`id`, `name`, `passwd`) VALUES (NULL, ’X', ‘Y’);
-ALSO: this works - with *writer*:
-MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
-* Change X and Y to user inputed name and password respectively
-* Need to get ID for user. Just get number rows of table, and add one. No need -
-* can just add NULL, like Chris said, and it will automatically update.
-* See what kind of access I need. Write or admin? Can I change to that here?
-*/
-
-    } // end addCustomer
-
-
-
-
 
     # Function that shows table of images/info on page
     # Notice how PHP is just echoing HTML throughout this code.
@@ -148,18 +89,18 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
         //display the records in a table
         echo "<hr>";
         echo "<h3>Merchandise:</h3>";
-        echo "<table border = '1'>";
+        #echo "<table border = '1'>";
 
         //Display table headers
-        echo "<tr>
-        <th>Choose</th>
-        <th>ID</th>
-        <th>Item</th>
-        <th>Cost</th>
-        <th>Quantity in Stock</th>
-        <th>Detail</th>
-        <th>Image</th>
-        </tr>";
+        #echo "<tr>
+        #<th>Choose</th>
+        #<th>ID</th>
+        #<th>Item</th>
+        #<th>Cost</th>
+        #<th>Quantity in Stock</th>
+        #<th>Detail</th>
+        #<th>Image</th>
+        #</tr>";
 
         $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
@@ -171,22 +112,21 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
              * from the HTML below. As long as there's a row with
              * data in it in the table, it will print it out.
              * We can easily incorporate CSS into this.
-             */
+             * Here, testing a CSS-based grid. */
             while($row = mysqli_fetch_assoc($items)) {
-            echo "<tr>"
-		    ."<td><input type=\"checkbox\" name='checkbox[]' ></td>"
-		    ."<td>".$row[ID]."</td>"
-		    ."<td>".$row[Item]."</td>"
-		    ."<td>" .$row[Cost]. "</td>"
-		    ."<td>".$row[Quantity]."</td>"
-		    ."<td>".$row[Detail]."</td>"
-            .'<td><img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/></td>'
-		    ."</tr>";
+                echo "<div class=\"responsive\">"
+                ."<div class=\"gallery\">"
+                .'<img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/>'
+		        ."</div>"
+                ."</div>";
+
             }
         }
+
+
         mysqli_free_result($items);
         mysqli_close($conn);
-        echo "</table>";
+        #echo "</div>";
 
         # Button to show cart, which brings user to a separate cart page
         echo "<form action=cart.php>";
@@ -195,7 +135,6 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
 
     } // end showMerch function
 
-    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items.
     public function showCart() {
         #$username = $_POST[uname];
         #echo "Here is your cart, " . $username;
