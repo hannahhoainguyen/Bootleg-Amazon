@@ -131,6 +131,8 @@ When I try to sign in on the SimpleLogin page, it just skips over the if-stateme
 - Links:
     - <https://www.sitepoint.com/community/t/how-to-insert-checkbox-value-to-database/3625>
 
+Here is a line in checkbox section for testing.
+
 ## SOME KIND OF "GALLERY" LAYOUT
 Look at this: <https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive>. Could do something like the following, using a similar "while" or "foreach" like you're doing now. Essentially the idea is "for each" row in merchandise, print out its name, price, and the link to its picture, which will be located in the images/ directory in the same space.
 ```
