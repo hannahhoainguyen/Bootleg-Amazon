@@ -5,12 +5,14 @@ include('BootlegZon.php');
 
 $username = $_SESSION['uname'];
 $kitty = $_SESSION['toonses'];
+$obj = $_SESSION['object'];
+
 ?>
 
 <html lang="en">
 
   <head>
-    <title>Rockingham Random-Salt Repo Cart</title>
+    <title>Nebula Knick Knacks Shopping Cart</title>
   </head>
 
   <body>
@@ -33,11 +35,11 @@ $kitty = $_SESSION['toonses'];
 
 
       // Don't really need to do this in cart. Causing error
-      $obj->table = 'customers';
-      $obj->connDB();
-      $obj->table = 'merchandise';
+      #$obj->table = 'customers';
+      #$obj->connDB();
+      #$obj->table = 'merchandise';
       $obj->showCart();
-      session_destroy();
+      # session_destroy();
      ?>
 
   </body>

@@ -7,8 +7,7 @@
 
 # Testing sessions. We need a session to keep a user "live" and logged in across web pages.
 $animal = "cat";
-#$_SESSION['uname'] = $_POST[uname];
-#$_SESSION['toonses'] = $animal;
+$_SESSION['toonses'] = $animal;
 # print_r($_SESSION);
 
 class BootlegZon {
@@ -111,7 +110,7 @@ class BootlegZon {
         # update dbase
         $this->user = 'bfsmith_writer';
         $this->password = 'd7WJWjLABFHzCqv8';
-        
+
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
 
         $username = $_POST[uname];
@@ -195,6 +194,7 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
         echo "</table>";
 
         # Button to show cart, which brings user to a separate cart page
+        #$_SESSION['uname'] = $_POST[uname];
         echo "<form action=cart.php>";
         echo "<input type=\"submit\" value=\"View cart\" />";
         echo "</form>";

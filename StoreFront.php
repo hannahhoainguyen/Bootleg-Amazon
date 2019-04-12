@@ -41,7 +41,7 @@ session_start();
       $obj->table = 'customers';
       #$obj->connDB();
       $obj->table = 'merchandise';
-      $_SESSION['uname'] = $_POST[uname];
+      #$_SESSION['uname'] = $_POST[uname];
 
       # Show the main page
       $obj->showMerch();
