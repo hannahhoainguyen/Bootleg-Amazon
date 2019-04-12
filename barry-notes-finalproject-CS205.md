@@ -91,7 +91,10 @@ MySQL [BFSMITH_STORE]>
 - [ ] Need to switch around the order of the pages on the site - i.e., you'll start by logging into the "merchandise" page, and the login will be something you access from the top.
 - [ ] See if you can resize pix w/ a command. Search resize php base64_encode. See https://stackoverflow.com/questions/50775658/resize-or-crop-base64-images-using-php
 - Checkboxes coding. Could have a separate function, invoked from the cart (?) Need some kind of "for each" - for each "name" in the list, if checkbox, show it, subtract it... Might be able to just use `$_POST` - does it carry across web pages? For some reason cart stopped working on 4/11/19. OK - because I was learning how to log in users, I erased some code. Fixed - the cart happened relatively early in the process, when I knew less about what I was doing.
-
+    - Search multiple checkboxes html how to save
+    - You can save values in some kind of array - see links below
+    - <https://stackoverflow.com/questions/13962718/how-to-save-multiple-checkboxes-in-one-string>
+    - <https://www.formget.com/php-checkbox/>
 ## QUESTIONS
 - How do we implement a cart? Just use another dbase table? Maybe something like in a separate table, where each user (they could have a particular ID) could have a record of what they want to purchase.
 - Another way - using a PHP SESSION array variable. <https://www.w3schools.com/php/php_sessions.asp>
