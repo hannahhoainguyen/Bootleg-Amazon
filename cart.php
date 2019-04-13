@@ -44,7 +44,7 @@ echo $selected."</br>";
 
       // Don't really need to do this in cart. Causing error
       #$obj->table = 'customers';
-      #$obj->connDB();
+      #$obj->userAuth();
       #$obj->table = 'merchandise';
       $obj->showCart();
       # session_destroy();

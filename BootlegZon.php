@@ -67,7 +67,7 @@ class BootlegZon {
 	}
 
     # Method to connect to dbase and authenticate users
-    public function connDB() {
+    public function userAuth() {
 
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
 
@@ -100,7 +100,7 @@ class BootlegZon {
 
         mysqli_free_result($credentials);
 
-    } // end connDB
+    } // end userAuth
 
 
     # Method to connect to dbase and authenticate users
@@ -172,7 +172,7 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
 
         if (mysqli_num_rows($items) > 0) {
 
-            echo "<form action=\"cart.php\" method=\"post\">";
+            echo "<form action=\"Cart.php\" method=\"post\">";
             /* This while-loop prints out the items, as can be seen
              * from the HTML below. As long as there's a row with
              * data in it in the table, it will print it out.
@@ -201,7 +201,7 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
 
         # Button to show cart, which brings user to a separate cart page
         #$_SESSION['uname'] = $_POST[uname];
-        echo "<form action=cart.php>";
+        echo "<form action=Cart.php>";
         echo "<input type=\"submit\" value=\"View cart\" />";
         echo "</form>";
         # echo $_POST['checkbox[3]'];
