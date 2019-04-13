@@ -172,6 +172,7 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
 
         if (mysqli_num_rows($items) > 0) {
 
+            echo "<form action=\"cart.php\" method=\"post\">";
             /* This while-loop prints out the items, as can be seen
              * from the HTML below. As long as there's a row with
              * data in it in the table, it will print it out.
@@ -179,7 +180,9 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
              */
             while($row = mysqli_fetch_assoc($items)) {
             echo "<tr>"
-		    ."<td><input type=\"checkbox\" name='checkbox[]' ></td>"
+		    #."<td><input type=\"checkbox\" name=\"checkbox[]\" value = ". $row[ID]. "></td>"
+		    ."<td><input type=\"checkbox\" name=\"checkbox[]\" value = \". {$row[ID]}. \"></td>"
+		    #."<td><input type=\"checkbox\" name='checkbox[]' value = ". 6 . "></td>"
 		    ."<td>".$row[ID]."</td>"
 		    ."<td>".$row[Item]."</td>"
 		    ."<td>" .$row[Cost]. "</td>"
@@ -192,12 +195,16 @@ MySQL [BFSMITH_STORE]> INSERT INTO customers VALUES ('6', 'Ishmael', 'moby');
         mysqli_free_result($items);
         mysqli_close($conn);
         echo "</table>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Submit\"/>";
+        echo "</form>";
+        $_SESSION['checkbox[]'] = $_POST['checkbox[]'];
 
         # Button to show cart, which brings user to a separate cart page
         #$_SESSION['uname'] = $_POST[uname];
         echo "<form action=cart.php>";
         echo "<input type=\"submit\" value=\"View cart\" />";
         echo "</form>";
+        # echo $_POST['checkbox[3]'];
 
     } // end showMerch function
 

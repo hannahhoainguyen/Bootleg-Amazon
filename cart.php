@@ -1,11 +1,19 @@
 <?php
 session_start();
 print_r($_SESSION);
+print_r($_SESSION['checkbox']);
 include('BootlegZon.php');
 
 $username = $_SESSION['uname'];
 $kitty = $_SESSION['toonses'];
 $obj = $_SESSION['object'];
+echo $_SESSION['checkbox[3]'];
+var_dump($_SESSION);
+var_dump($_POST);
+foreach($_POST['checkbox'] as $selected){
+echo $selected."</br>";
+}
+# So far, checkbox[] has NULL values in it. Why?
 
 ?>
 
