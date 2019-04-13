@@ -17,7 +17,7 @@ if ($pw1 != $pw2) {
 }
 else {
     $obj->addCustomer();
-    echo "This is who I am now: " . $obj->user;
+    echo "This is the admin-user in use now: " . $obj->user;
 
 }
 echo '<p><a href="StoreFront.php">Back to store</a><p>';

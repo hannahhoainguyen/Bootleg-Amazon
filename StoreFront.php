@@ -29,7 +29,7 @@ session_start();
     if (isset($_SESSION["uname"])) {
       $username = $_SESSION["uname"];
       echo "<i>" . $username . "</i> is logged in via post. <p>";
-      echo '<a href="logout.php" >Logout</a><p>';
+      echo '<a href="Logout.php" >Logout</a><p>';
 
       # Set up connection to database
       $obj->displayProcessing();
