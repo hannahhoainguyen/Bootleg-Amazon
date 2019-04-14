@@ -5,7 +5,7 @@
 session_start();
 # Session testing
 # $animal = "cat";
-# $_SESSION['toonses'] = $animal;
+# $_SESSION['Toonces'] = $animal;
 ?>
   <head>
     <title>Nebula Knick-Knacks</title>

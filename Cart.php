@@ -1,22 +1,41 @@
 <?php
 session_start();
+
+# Debugging
 print_r($_SESSION);
+echo "<p>";
+echo "just printed the whole session<br>";
 print_r($_SESSION['checkbox']);
+echo "just printed checkbox?<br>";
+echo $_SESSION['checkbox'][0];
+echo $_SESSION['checkbox'][1];
+echo "<p>";
+
 include('BootlegZon.php');
+$checkBoxArray = $_POST['checkbox'];
 
 $username = $_SESSION['uname'];
-$kitty = $_SESSION['toonses'];
 $obj = $_SESSION['object'];
-echo $_SESSION['checkbox[3]'];
+# $obj->displaySignUp();
+
+# Debugging
+$kitty = $_SESSION['Toonces'];
+
+# Get the BootlegZon object stored in the $_SESSION
+$obj = $_SESSION['object'];
+
+# Debugging
 var_dump($_SESSION);
 var_dump($_POST);
-foreach($_POST['checkbox'] as $selected){
-echo $selected."</br>";
-}
-# So far, checkbox[] has NULL values in it. Why?
 
+# Debugging
+echo "<p>";
+foreach($_POST['checkbox'] as $selected){
+echo "Here" . $selected."<br>";
+}
 ?>
 
+<!-- Start web page   Start web page   Start web page     -->
 <html lang="en">
 
   <head>
@@ -24,31 +43,27 @@ echo $selected."</br>";
   </head>
 
   <body>
-    <?php
 
+    <?php
+    # Debugging
     echo "Hello, this is the cart, " . $username . "<br>";
-    echo "And here is the identity of toonses, " . $kitty . "<br>";
+    echo "And here is the identity of Toonces, " . $kitty . "<br>";
     echo "Hello again.<br>";
 
-    #if (isset($_POST['Headphones'])) {
-    #    echo "So you want headphones?";
-    #}
+     print_r($checkBoxArray);
+     print_r($_SESSION['checkbox']);
 
     $obj = new BootlegZon();
-    $obj->user = 'bfsmith_reader';
-    $obj->password = 'Xm8av2CKT7rSG2k7';
+    $obj->user = 'bfsmith_writer';
+    $obj->password = 'd7WJWjLABFHzCqv8';
     $obj->dbase = 'BFSMITH_STORE';
     $obj->host = '132.198.101.199';
     $obj->port = 3306;
 
 
-      // Don't really need to do this in cart. Causing error
-      #$obj->table = 'customers';
-      #$obj->userAuth();
-      #$obj->table = 'merchandise';
-      $obj->showCart();
-      # session_destroy();
-     ?>
+     #$obj->showCart();
+     $obj->showCart($checkBoxArray);
 
+    ?>
   </body>
 </html>

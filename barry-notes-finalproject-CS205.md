@@ -130,8 +130,10 @@ When I try to sign in on the SimpleLogin page, it just skips over the if-stateme
 - Looks like I should be giving each checkbox a checkbox *name*, and from that I should be able to choose an item.
 - Links:
     - <https://www.sitepoint.com/community/t/how-to-insert-checkbox-value-to-database/3625>
+- Problems: for some reason, there were extra dots, periods, in the ID values in rows in the MERCH table when I fetched them. They were *not* in the table itself - it has something to do w/ the PHP or the way I fetched them. When I stripped them out, things started working. This probably cost me an hour or more, since I was searching for an ID like ".24 ." instead of "24".
 
-Here is a line in checkbox section for testing.
+## SUBTRACT FROM A MYSQL FIELD
+<https://stackoverflow.com/questions/5383108/update-a-column-by-subtracting-a-value>
 
 ## SOME KIND OF "GALLERY" LAYOUT
 Look at this: <https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive>. Could do something like the following, using a similar "while" or "foreach" like you're doing now. Essentially the idea is "for each" row in merchandise, print out its name, price, and the link to its picture, which will be located in the images/ directory in the same space.
