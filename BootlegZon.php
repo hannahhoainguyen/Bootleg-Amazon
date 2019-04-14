@@ -212,11 +212,12 @@ class BootlegZon {
         } */
 
 
-        #foreach ($checkBoxArray as $value) {
-$carrier = $checkBoxArray[0];
+        foreach ($checkBoxArray as $value) {
+#$carrier = $checkBoxArray[$value];
+$carrier = $value;
 $carrier = str_replace(".", "", $carrier);
-echo "<p>";
-echo $carrier;
+#echo "<p>";
+#echo $carrier;
                    $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
                    $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
                    if (mysqli_num_rows($items) > 0) {
@@ -230,7 +231,7 @@ echo $carrier;
        		            ."</tr>";
                        }
                    }
-               #}
+               }
 
 
         foreach ($checkBoxArray as $value) {
