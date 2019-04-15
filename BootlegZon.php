@@ -203,6 +203,9 @@ class BootlegZon {
             $carrier = $value;
             $carrier = str_replace(".", "", $carrier);
             $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
+
+            $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
+
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
@@ -213,8 +216,11 @@ class BootlegZon {
        		        ."<td>" . 1 . "</td>"
        		        ."<td>".$row[Detail]."</td>"
        		        ."</tr>";
+
                 }
-                
+                mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+
+
                 /* $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
                 $items = mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
                 while($row = mysqli_fetch_assoc($items)) {
