@@ -134,6 +134,11 @@ When I try to sign in on the SimpleLogin page, it just skips over the if-stateme
 
 ## SUBTRACT FROM A MYSQL FIELD
 <https://stackoverflow.com/questions/5383108/update-a-column-by-subtracting-a-value>
+UPDATE a75ting.username SET points = points - 5
+
+I confirmed these work:
+UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '15';
+UPDATE MERCH SET Quantity = Quantity + 16 WHERE ID = '15';
 
 ## SOME KIND OF "GALLERY" LAYOUT
 Look at this: <https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive>. Could do something like the following, using a similar "while" or "foreach" like you're doing now. Essentially the idea is "for each" row in merchandise, print out its name, price, and the link to its picture, which will be located in the images/ directory in the same space.

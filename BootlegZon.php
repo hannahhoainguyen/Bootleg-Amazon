@@ -197,46 +197,40 @@ class BootlegZon {
         </tr>";
 
         $this->table = 'MERCH';
-/*        $query = "Select * FROM ".$this->table.";";
-        $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
-        if (mysqli_num_rows($items) > 0) {
-        // Print out the items
-            while($row = mysqli_fetch_assoc($items)) {
-                echo "<tr>"
-		    ."<td>".$row[ID]."</td>"
-		    ."<td>".$row[Item]."</td>"
-		    ."<td>" .$row[Quantity]. "</td>"
-		    ."<td>".$row[Detail]."</td>"
-		    ."</tr>";
-            }
-        } */
-
 
         foreach ($checkBoxArray as $value) {
-#$carrier = $checkBoxArray[$value];
-$carrier = $value;
-$carrier = str_replace(".", "", $carrier);
-#echo "<p>";
-#echo $carrier;
-                   $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
-                   $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
-                   if (mysqli_num_rows($items) > 0) {
-                   // Print out the items
-                       while($row = mysqli_fetch_assoc($items)) {
-                           echo "<tr>"
-       		            ."<td>".$row[ID]."</td>"
-       		            ."<td>".$row[Item]."</td>"
-       		            ."<td>" .$row[Quantity]. "</td>"
-       		            ."<td>".$row[Detail]."</td>"
-       		            ."</tr>";
-                       }
-                   }
-               }
+            #$carrier = $checkBoxArray[$value];
+            $carrier = $value;
+            $carrier = str_replace(".", "", $carrier);
+            $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
+            $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            if (mysqli_num_rows($items) > 0) {
+                // Print out the items
+                while($row = mysqli_fetch_assoc($items)) {
+                    echo "<tr>"
+       		        ."<td>".$row[ID]."</td>"
+       		        ."<td>".$row[Item]."</td>"
+       		        ."<td>" . 1 . "</td>"
+       		        ."<td>".$row[Detail]."</td>"
+       		        ."</tr>";
+                }
+                
+                /* $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
+                $items = mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                while($row = mysqli_fetch_assoc($items)) {
 
+                    mysqli_query($conn, $query) or die(mysqli_error($conn));
+                }*/
 
-        foreach ($checkBoxArray as $value) {
-            echo $value . "<br>";
-}
+            } // end if-statement
+        } // end foreach
+
+        # Debugging
+        #foreach ($checkBoxArray as $value) {
+        #    echo $value . "<br>";
+        # }
+
+/* DEBUGGING
 print_r($checkBoxArray);
 echo "And this: " . $checkBoxArray[0];
 echo "<p>";
@@ -245,7 +239,7 @@ $carrier = $checkBoxArray[0];
 $carrier = str_replace(".", "", $carrier);
 echo "<p>";
 echo $carrier;
-
+*/
 
         mysqli_free_result($items);
         mysqli_close($conn);
