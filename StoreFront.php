@@ -5,7 +5,7 @@
 session_start();
 # Session testing
 # $animal = "cat";
-# $_SESSION['toonses'] = $animal;
+# $_SESSION['Toonces'] = $animal;
 ?>
   <head>
     <title>Nebula Knick-Knacks</title>
@@ -29,7 +29,7 @@ session_start();
     if (isset($_SESSION["uname"])) {
       $username = $_SESSION["uname"];
       echo "<i>" . $username . "</i> is logged in via post. <p>";
-      echo '<a href="logout.php" >Logout</a><p>';
+      echo '<a href="Logout.php" >Logout</a><p>';
 
       # Set up connection to database
       $obj->displayProcessing();
@@ -39,7 +39,7 @@ session_start();
       $obj->host = '132.198.101.199';
       $obj->port = 3306;
       $obj->table = 'customers';
-      #$obj->connDB();
+      #$obj->userAuth();
       $obj->table = 'merchandise';
       #$_SESSION['uname'] = $_POST[uname];
 
@@ -58,7 +58,7 @@ session_start();
       $obj->host = '132.198.101.199';
       $obj->port = 3306;
       $obj->table = 'customers';
-      #$obj->connDB();
+      #$obj->userAuth();
       $obj->table = 'merchandise';
 
       # Show the main page
