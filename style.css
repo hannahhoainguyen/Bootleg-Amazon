@@ -17,7 +17,39 @@ div.gallery figcaption {
   width: 100%;
   opacity: 0;
   backface-visibility: hidden;
-  box-shadow: 0 0 0 0px #
+  box-shadow: 0 0 0 0px navy;
+  transition: opacity .3s, height .3s, box-shadow .3s;
+}
+
+.no-touch div.gallery figure:hover figcaption,
+div.gallery figure.cs-hover figcaption {
+  opacity: 1;
+  height: 130%;
+  box-shadow: 0 0 0 10px #50a14f;
+}
+
+div.gallery figcaption h4 {
+  margin-top: 86%;
+}
+
+div.gallery figcaption h4,
+div.gallery figcaption a {
+  opacity: 0;
+  transition: opacity 0s;
+}
+
+div.gallery figcaption a {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.no-touch div.gallery figure:hover figcaption h4,
+.no-touch div.gallery figure:hover figcaption a,
+div.gallery figure.cs-hover figcaption h4,
+div.gallery figure.cs-hover figcaption a {
+  transition: opacity .3s .2s;
+  opacity: 1;
 }
 
 div.desc {
