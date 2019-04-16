@@ -11,9 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="affd3d02-71c6-4b49-a72a-db64f834e348" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootlegZonTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/BootlegZonTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StoreFrontTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/StoreFrontTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,14 +40,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="94" />
+          <entry key="css" value="227" />
           <entry key="php" value="330" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="94" />
-          <entry key="PLAIN_TEXT" value="330" />
+          <entry key="CSS" value="227" />
+          <entry key="PLAIN_TEXT" value="340" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -69,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="5" selection-end-column="25" />
+            <state relative-caret-position="323">
+              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -108,14 +111,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/BootlegZon.php" />
         <option value="$PROJECT_DIR$/StoreFrontTest.php" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/BootlegZonTest.php" />
+        <option value="$PROJECT_DIR$/style.css" />
       </list>
     </option>
   </component>
@@ -184,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1554952046107</updated>
       <workItem from="1554952048202" duration="1784000" />
-      <workItem from="1555456040950" duration="1420000" />
+      <workItem from="1555456040950" duration="1689000" />
     </task>
     <task id="LOCAL-00001" summary="Commented out free result - no need here.">
       <created>1554953655679</created>
@@ -193,11 +201,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554953655679</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="css style">
+      <created>1555457664439</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555457664439</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3204000" />
+    <option name="totallyTimeSpent" value="3473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="645" y="0" width="642" height="687" extended-state="0" />
@@ -232,7 +247,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commented out free result - no need here." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented out free result - no need here." />
+    <MESSAGE value="css style" />
+    <option name="LAST_COMMIT_MESSAGE" value="css style" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BootlegZon.php">
@@ -280,8 +296,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="25" />
+        <state relative-caret-position="323">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
