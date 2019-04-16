@@ -116,7 +116,15 @@ class BootlegZonTest {
             while($row = mysqli_fetch_assoc($items)) {
                 echo "<div class=\"responsive\">"
                 ."<div class=\"gallery\">"
+
+                ."<figure>"
                 .'<img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/>'
+		        ."<figcaption>"
+		        ."<h3> Testing </h3>"
+		        ."<a href="#addtocart"> Add to cart </a>"
+		        ."</figcaption>"
+		        ."</figure>"
+
 		        ."</div>"
                 ."</div>";
 

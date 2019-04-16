@@ -10,92 +10,9 @@ $_SESSION['toonses'] = $animal;
   <head>
     <title>Nebula Knick-Knacks</title>
 
-    <style>
-    div.gallery {
-      border: 1px solid #ccc;
-    }
-
-    div.gallery:hover {
-      border: 1px solid #777;
-    }
-
-    div.gallery img {
-      width: auto;
-      height: auto;
-      justify-content: center;
-
-    }
-
-    div.desc {
-      padding: 15px;
-      text-align: center;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .responsive {
-      padding: 0 6px;
-      float: left;
-      width: 24.99999%;
-    }
-
-    @media only screen and (max-width: 700px) {
-      .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-      }
-    }
-
-    @media only screen and (max-width: 500px) {
-      .responsive {
-        width: 100%;
-      }
-    }
-
-    .clearfix:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-/* Navbar on side */
-/* body {
-margin: 0;
-}
-
-ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
-width: 25%;
-background-color: #f1f1f1;
-position: fixed;
-height: 100%;
-overflow: auto;
-}
-
-li a {
-display: block;
-color: #000;
-padding: 8px 16px;
-text-decoration: none;
-}
-
-li a.active {
-background-color: #4CAF50;
-color: white;
-}
-
-li a:hover:not(.active) {
-background-color: #555;
-color: white;
-}
-*/
-
-    </style>
-
+    <link ref = "stylesheet"
+        type = "text/css"
+        href = "style.css" />
   </head>
 
   <body>
