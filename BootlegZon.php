@@ -206,6 +206,8 @@ class BootlegZon {
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
 
+            $queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
@@ -217,35 +219,17 @@ class BootlegZon {
        		        ."<td>".$row[Detail]."</td>"
        		        ."</tr>";
 
+
+
                 }
                 mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                # Experiment
+                # $this->table = 'cart';
+                # mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
 
-
-                /* $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
-                $items = mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
-                while($row = mysqli_fetch_assoc($items)) {
-
-                    mysqli_query($conn, $query) or die(mysqli_error($conn));
-                }*/
 
             } // end if-statement
         } // end foreach
-
-        # Debugging
-        #foreach ($checkBoxArray as $value) {
-        #    echo $value . "<br>";
-        # }
-
-/* DEBUGGING
-print_r($checkBoxArray);
-echo "And this: " . $checkBoxArray[0];
-echo "<p>";
-echo $checkBoxArray[0];
-$carrier = $checkBoxArray[0];
-$carrier = str_replace(".", "", $carrier);
-echo "<p>";
-echo $carrier;
-*/
 
         mysqli_free_result($items);
         mysqli_close($conn);
