@@ -47,12 +47,12 @@ echo "Here" . $selected."<br>";
 
     <?php
     # Debugging
-    echo "Hello, this is the cart, " . $username . "<br>";
-    echo "And here is the identity of Toonces, " . $kitty . "<br>";
-    echo "Hello again.<br>";
+    # echo "Hello, this is the cart, " . $username . "<br>";
+    # echo "And here is the identity of Toonces, " . $kitty . "<br>";
+    # echo "Hello again.<br>";
 
-     print_r($checkBoxArray);
-     print_r($_SESSION['checkbox']);
+    # print_r($checkBoxArray);
+    # print_r($_SESSION['checkbox']);
 
     $obj = new BootlegZon();
     $obj->user = 'bfsmith_writer';
