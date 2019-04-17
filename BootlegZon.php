@@ -205,24 +205,40 @@ class BootlegZon {
             $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
-
+            $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
             $queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
                 while($row = mysqli_fetch_assoc($items)) {
-                    echo "<tr>"
-       		        ."<td>".$row[ID]."</td>"
-       		        ."<td>".$row[Item]."</td>"
-       		        ."<td>" . 1 . "</td>"
-       		        ."<td>".$row[Detail]."</td>"
-       		        ."</tr>";
+
+                    $qty = mysqli_query($conn,$checkQtyQuery) or die(mysqli_error($conn));
+                    if($qty>0) {
+                        mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                        echo "<tr>"
+                            . "<td>" . $row[ID] . "</td>"
+                            . "<td>" . $row[Item] . "</td>"
+                            . "<td>" . 1 . "</td>"
+                            . "<td>" . $row[Detail] . "</td>"
+                            . "</tr>";
 
 
+                    }
+                    else{
+                        echo "Item out of stock call store";
+                        echo "<tr>"
+                            . "<td>" . $row[ID] . "</td>"
+                            . "<td>" . $row[Item] . "</td>"
+                            . "<td>" . "Item Out of Stock" . "</td>"
+                            . "<td>" . $row[Detail] . "</td>"
+                            . "</tr>";
 
+
+                    }
                 }
-                mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+
+
                 # Experiment
                 # $this->table = 'cart';
                 # mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
