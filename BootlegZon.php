@@ -222,7 +222,7 @@ class BootlegZon {
                             . "<td>" . 1 . "</td>"
                             . "<td>" . $row[Detail] . "</td>"
                             . "</tr>";
-
+                        echo"Item out of stock";
 
                     }
                     else{
