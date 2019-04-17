@@ -219,7 +219,7 @@ class BootlegZon {
                         echo "<tr>"
                             . "<td>" . $row[ID] . "</td>"
                             . "<td>" . $row[Item] . "</td>"
-                            . "<td>" . 1 . "</td>"
+                            . "<td>" . 2 . "</td>"
                             . "<td>" . $row[Detail] . "</td>"
                             . "</tr>";
                         echo"Item out of stock";
