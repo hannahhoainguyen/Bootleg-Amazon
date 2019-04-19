@@ -1,3 +1,4 @@
+/**********************HOVER EFFECTS***********************/
 div.gallery {
   border: 1px solid #ccc;
 }
@@ -52,6 +53,8 @@ div.gallery figure.cs-hover figcaption a {
   opacity: 1;
 }
 
+/********************END OF HOVER EFFECTS********************/
+
 div.desc {
   padding: 15px;
   text-align: center;
@@ -61,7 +64,7 @@ div.desc {
   box-sizing: border-box;
 }
 
-.responsive {
+div.responsive {
   padding: 0 6px;
   float: left;
   width: 24.99999%;
@@ -120,7 +123,26 @@ color: white;
 }
 */
 
-/***** JARED'S CSS STYLE *****/
+/*********************Store Front Display *************************/
+body {
+  margin: auto;
+  width: 80%;
+  background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
+  background-repeat: repeat-y;
+  background-color: black;
+}
 
+/*********************Store Front Display END *************************/
 
-/***** END OF JARED's CSS STYLE *****/
+/*********************Navigation *****************************/
+
+div.storehead {
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}
+
+/*********************Navigation END**********************************/
+

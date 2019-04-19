@@ -9,25 +9,26 @@ $_SESSION['toonses'] = $animal;
 ?>
   <head>
     <title>Nebula Knick-Knacks</title>
-
-    <link ref = "stylesheet"
-        type = "text/css"
-        href = "style.css" />
+      <meta charset="utf-8">
+      <meta name="author" content="Orbital Enterprises">
+      <meta name="description" content="Selling our space-related merchandise">
+      <link ref = "stylesheet" type = "text/css" href = "style.css"/>
   </head>
 
   <body>
-  <h1>Nebula Knick-Knacks</h1>
-  <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
-  hello!
+  <div class="storehead">
+    <h1>Nebula Knick-Knacks</h1>
+    <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
+        hello!
 
 
-  <ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#rockets">Rockets</a></li>
-    <li><a href="#planets">Planets</a></li>
-    <li><a href="#apparel">Apparel</a></li>
-  </ul>
-
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#rockets">Rockets</a></li>
+        <li><a href="#planets">Planets</a></li>
+        <li><a href="#apparel">Apparel</a></li>
+    </ul>
+  </div>
 
     <?php
 #ini_set('display_errors',1);
