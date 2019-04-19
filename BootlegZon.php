@@ -194,6 +194,7 @@ class BootlegZon {
         <th>Item</th>
         <th>Number Purchased</th>
         <th>Detail</th>
+        <th>Cost</th>
         </tr>";
 
         $this->table = 'MERCH';
@@ -205,47 +206,59 @@ class BootlegZon {
             $query = "Select * FROM ".$this->table." WHERE ID = '". $carrier ."';";
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
+            $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
+            $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
+            //$queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
                 while($row = mysqli_fetch_assoc($items)) {
-                    echo "<tr>"
-       		        ."<td>".$row[ID]."</td>"
-       		        ."<td>".$row[Item]."</td>"
-       		        ."<td>" . 1 . "</td>"
-       		        ."<td>".$row[Detail]."</td>"
-       		        ."</tr>";
 
+                    $qty = $row[Quantity];
+                    echo "Yo, this is the quant" . $row[Quantity];
+                    if($qty > 0) {
+                        mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                        echo "<tr>"
+                            . "<td>" . $row[ID] . "</td>"
+                            . "<td>" . $row[Item] . "</td>"
+                            . "<td>" . 1 . "</td>"
+                            . "<td>" . $row[Detail] . "</td>"
+                            . "<td>" . $row[Cost] . "</td>"
+                            . "</tr>";
+                        echo"Item out of stock";
+
+                    }
+                    else{
+                        echo "Item out of stock call store";
+                        echo "<tr>"
+                            . "<td>" . $row[ID] . "</td>"
+                            . "<td>" . $row[Item] . "</td>"
+                            . "<td>" . "Item Out of Stock" . "</td>"
+                            . "<td>" . $row[Detail] . "</td>";
+
+                    }
                 }
-                mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
 
 
-                /* $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
-                $items = mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
-                while($row = mysqli_fetch_assoc($items)) {
+                # Experiment
+                # $this->table = 'cart';
+                # mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
 
-                    mysqli_query($conn, $query) or die(mysqli_error($conn));
-                }*/
 
             } // end if-statement
         } // end foreach
+        echo "<hr>";
+        echo "<h3>Cart Total:</h3>";
+        echo "<table border = '1'>";
 
-        # Debugging
-        #foreach ($checkBoxArray as $value) {
-        #    echo $value . "<br>";
-        # }
-
-/* DEBUGGING
-print_r($checkBoxArray);
-echo "And this: " . $checkBoxArray[0];
-echo "<p>";
-echo $checkBoxArray[0];
-$carrier = $checkBoxArray[0];
-$carrier = str_replace(".", "", $carrier);
-echo "<p>";
-echo $carrier;
-*/
+        //display table headers
+        echo "<tr>
+        <th>Total</th>
+        </tr>";
+        $total = mysqli_query($conn,$cartTotalQuery) or die(mysqli_error($conn));
+        echo "<tr>"
+            ."<td>" . $total . "</td>";
 
         mysqli_free_result($items);
         mysqli_close($conn);
