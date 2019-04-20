@@ -208,7 +208,9 @@ class BootlegZon {
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
             $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
-            $queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+            # near ' '', 1, '')'
+            $queryAddToCart = "Insert INTO " . $this->table. "(itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+            $queryNewCustomer="Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
@@ -217,7 +219,7 @@ class BootlegZon {
 
                     $qty = $row[Quantity];
                     echo "Yo, this is the quant" . $row[Quantity];
-                    if($qty > 0) {
+                    if ($qty > 0) {
                         mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
                         echo "<tr>"
                             . "<td>" . $row[ID] . "</td>"
@@ -226,7 +228,13 @@ class BootlegZon {
                             . "<td>" . $row[Detail] . "</td>"
                             . "<td>" . $row[Cost] . "</td>"
                             . "</tr>";
-                        echo"Item out of stock";
+                        # Experiment
+                        $this->table = 'cart';
+                        echo $this->table;
+                        mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
+                        $this->table = 'MERCH';
+
+
 
                     }
                     else{
@@ -241,9 +249,7 @@ class BootlegZon {
                 }
 
 
-                # Experiment
-                # $this->table = 'cart';
-                # mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
+
 
 
             } // end if-statement
