@@ -208,7 +208,7 @@ class BootlegZon {
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
             $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
-            //$queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+            $queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
