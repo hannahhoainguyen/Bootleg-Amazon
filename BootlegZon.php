@@ -199,6 +199,10 @@ class BootlegZon {
 
         $this->table = 'MERCH';
 
+        # Clear the cart table before we add to it below
+        $queryEmptyCart = "DELETE FROM cart";
+        mysqli_query($conn, $queryEmptyCart) or die(mysqli_error($conn));
+
         foreach ($checkBoxArray as $value) {
             #$carrier = $checkBoxArray[$value];
             $carrier = $value;
@@ -208,7 +212,6 @@ class BootlegZon {
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
             $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table." WHERE ID = '".$carrier ."';";
-            $queryNewCustomer="Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
@@ -216,7 +219,7 @@ class BootlegZon {
                 while($row = mysqli_fetch_assoc($items)) {
 
                     $qty = $row[Quantity];
-                    echo "Yo, this is the quant" . $row[Quantity];
+                    #echo "Yo, this is the quant" . $row[Quantity];
                     if ($qty > 0) {
                         mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
                         echo "<tr>"
@@ -228,9 +231,9 @@ class BootlegZon {
                             . "</tr>";
                         # Experiment
                         $this->table = 'cart';
-                        $queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+                        $queryAddToCart = "Insert INTO " . $this->table . " (itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
                         #$queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('$row[ID]', '$row[Item]', 1,  '$row[Detail]');";
-                        echo $this->table;
+                        #echo $this->table;
                         mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
                         $this->table = 'MERCH';
 
@@ -248,6 +251,8 @@ class BootlegZon {
 
             } // end if-statement
         } // end foreach
+
+
 
         echo "</table>";
 /*        echo "<hr>";
