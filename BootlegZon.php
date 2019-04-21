@@ -208,8 +208,6 @@ class BootlegZon {
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
             $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
-            # near ' '', 1, '')'
-            $queryAddToCart = "Insert INTO " . $this->table. "(itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
             $queryNewCustomer="Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -230,11 +228,11 @@ class BootlegZon {
                             . "</tr>";
                         # Experiment
                         $this->table = 'cart';
+                        $queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
+                        #$queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('$row[ID]', '$row[Item]', 1,  '$row[Detail]');";
                         echo $this->table;
                         mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
                         $this->table = 'MERCH';
-
-
 
                     }
                     else{
@@ -247,10 +245,6 @@ class BootlegZon {
 
                     }
                 }
-
-
-
-
 
             } // end if-statement
         } // end foreach
