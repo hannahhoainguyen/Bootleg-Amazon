@@ -207,7 +207,7 @@ class BootlegZon {
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
-            $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
+            $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table." WHERE ID = '".$carrier ."';";
             $queryNewCustomer="Insert INTO " . $this->table. " VALUES (NULL, '" . $username."', '".$upasswd."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -248,7 +248,9 @@ class BootlegZon {
 
             } // end if-statement
         } // end foreach
-        echo "<hr>";
+
+        echo "</table>";
+/*        echo "<hr>";
         echo "<h3>Cart Total:</h3>";
         echo "<table border = '1'>";
 
@@ -262,7 +264,7 @@ class BootlegZon {
 
         mysqli_free_result($items);
         mysqli_close($conn);
-        echo "</table>";
+        echo "</table>"; */
 
     } // end showCart() function
 
