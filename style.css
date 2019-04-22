@@ -53,6 +53,9 @@ div.gallery figure.cs-hover figcaption a {
   opacity: 1;
 }
 
+div.gallery img {
+
+}
 /********************END OF HOVER EFFECTS********************/
 
 div.desc {
@@ -137,11 +140,8 @@ body {
 /*********************Navigation *****************************/
 
 div.storehead {
-  background-color: white;
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
+  position: static;
+
 }
 
 /*********************Navigation END**********************************/

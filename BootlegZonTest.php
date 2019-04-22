@@ -32,7 +32,12 @@ class BootlegZonTest {
 	echo "</fieldset>";
 	echo "</form>";
 
-	#FORMDATA;
+# Button to show cart, which brings user to a separate cart page
+echo "<form action=cart.php>";
+    echo "<input type=\"submit\" value=\"View cart\" />";
+    echo "</form>";
+
+#FORMDATA;
 	} // end displayLogin function
 
 
@@ -135,11 +140,6 @@ class BootlegZonTest {
         mysqli_free_result($items);
         mysqli_close($conn);
         #echo "</div>";
-
-        # Button to show cart, which brings user to a separate cart page
-        echo "<form action=cart.php>";
-        echo "<input type=\"submit\" value=\"View cart\" />";
-        echo "</form>";
 
     } // end showMerch function
 
