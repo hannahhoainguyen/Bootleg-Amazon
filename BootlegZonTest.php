@@ -119,8 +119,8 @@ echo "<form action=cart.php>";
              * We can easily incorporate CSS into this.
              * Here, testing a CSS-based grid. */
             while($row = mysqli_fetch_assoc($items)) {
-                echo "<div class=\"responsive\">"
-                ."<div class=\"gallery\">"
+                echo "<div class="responsive">"
+                ."<div class="gallery">"
 
                 ."<figure>"
                 .'<img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/>'

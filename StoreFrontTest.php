@@ -12,7 +12,7 @@ $_SESSION['toonses'] = $animal;
       <meta charset="utf-8">
       <meta name="author" content="Orbital Enterprises">
       <meta name="description" content="Selling our space-related merchandise">
-      <link ref = "stylesheet" type = "text/css" href = "style.css"/>
+      <link href = "stylesheet" type = "text/css" href = "style.css"/>
       <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 

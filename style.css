@@ -1,4 +1,5 @@
 /**********************HOVER EFFECTS***********************/
+
 div.gallery {
   border: 1px solid #ccc;
 }
@@ -7,16 +8,17 @@ div.gallery:hover {
   border: 1px solid #777;
 }
 
-div.gallery img {
+div.gallery figure img {
   width: 100%;
   height: auto;
   z-index: 10;
 }
 
-div.gallery figcaption {
+div.gallery figure figcaption {
   height: 100%;
   width: 100%;
   opacity: 0;
+  margin: 0;
   backface-visibility: hidden;
   box-shadow: 0 0 0 0px navy;
   transition: opacity .3s, height .3s, box-shadow .3s;
@@ -53,9 +55,6 @@ div.gallery figure.cs-hover figcaption a {
   opacity: 1;
 }
 
-div.gallery img {
-
-}
 /********************END OF HOVER EFFECTS********************/
 
 div.desc {
@@ -128,11 +127,14 @@ color: white;
 
 /*********************Store Front Display *************************/
 body {
-  margin: auto;
-  width: 80%;
-  background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
-  background-repeat: repeat-y;
-  background-color: black;
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  /*background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
+  */
+  background-repeat: repeat-y, repeat-x;
+  background-color: red;
+
 }
 
 /*********************Store Front Display END *************************/
@@ -141,14 +143,14 @@ body {
 
 div.storehead {
   background-color: white;
-  position: static;
+  position: fixed;
   overflow: hidden;
   top: 0;
   width: 100%;
 }
 
-div.storehead h1,
-div.storehead h3 {
+h1,
+h3 {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -158,6 +160,7 @@ div.storehead ul {
   padding: 0;
   display: flex;
   justify-content: space-between;
+
 }
 
 
@@ -165,4 +168,12 @@ div.storehead li {
   display: inline;
 }
 /*********************Navigation END**********************************/
+
+/***********************GALLERY MOD*********************************/
+
+div.space {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 

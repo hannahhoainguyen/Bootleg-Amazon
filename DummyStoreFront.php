@@ -5,7 +5,7 @@
     <title>Dummy Test Site</title>
     <meta name="author" content="Orbital Enterprises">
     <meta name="description" content="Selling our space-related merchandise">
-    <link ref = "stylesheet" type = "text/css" href = "style.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "style.css" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
@@ -20,5 +20,17 @@
         </ul>
     </div>
 
+    <div class="space"></div>
+
+    <div class="gallery" class="responsive">
+        <figure>
+            <img src="test1.jpg">
+            <figcaption>
+                <h4>Testing</h4>
+                <a href="#test1">Test 1 link</a>
+            </figcaption>
+        </figure>
+        <img src="test2.jpg">
+    </div>
 </body>
 </html>
