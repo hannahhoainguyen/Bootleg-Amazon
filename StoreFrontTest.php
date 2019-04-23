@@ -13,13 +13,17 @@ $_SESSION['toonses'] = $animal;
       <meta name="author" content="Orbital Enterprises">
       <meta name="description" content="Selling our space-related merchandise">
       <link ref = "stylesheet" type = "text/css" href = "style.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
   <body>
   <div class="storehead">
+
+      /*
+        have the logo picture here next to the title
+      */
     <h1>Nebula Knick-Knacks</h1>
     <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
-        hello!
 
 
     <ul>
