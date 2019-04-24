@@ -219,6 +219,8 @@ class BootlegZon {
                 while($row = mysqli_fetch_assoc($items)) {
 
                     $qty = $row[Quantity];
+                    # $cost = 0;
+                    #float($cost);
                     #echo "Yo, this is the quant" . $row[Quantity];
                     if ($qty > 0) {
                         mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
@@ -229,12 +231,16 @@ class BootlegZon {
                             . "<td>" . $row[Detail] . "</td>"
                             . "<td>" . $row[Cost] . "</td>"
                             . "</tr>";
+                        # $cost2 = float($row[Cost]);
+                        # $cost = $cost + $cost2;
+                        # echo $cost;
                         # Experiment
                         $this->table = 'cart';
                         $queryAddToCart = "Insert INTO " . $this->table . " (itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
                         #$queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('$row[ID]', '$row[Item]', 1,  '$row[Detail]');";
                         #echo $this->table;
                         mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
+
                         $this->table = 'MERCH';
 
                     }
