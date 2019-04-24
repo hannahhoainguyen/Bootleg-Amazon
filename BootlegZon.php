@@ -198,6 +198,7 @@ class BootlegZon {
         </tr>";
 
         $this->table = 'MERCH';
+        $total = (float) 0.0;
 
         foreach ($checkBoxArray as $value) {
             #$carrier = $checkBoxArray[$value];
@@ -207,18 +208,15 @@ class BootlegZon {
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
-            $cartTotalQuery = "Select SUM(Cost) FROM ". $this->table."";
             //$queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
 
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
                 while($row = mysqli_fetch_assoc($items)) {
-
                     $qty = $row[Quantity];
-                    echo "Yo, this is the quant" . $row[Quantity];
                     if($qty > 0) {
-                        mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                       # mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
                         echo "<tr>"
                             . "<td>" . $row[ID] . "</td>"
                             . "<td>" . $row[Item] . "</td>"
@@ -226,9 +224,8 @@ class BootlegZon {
                             . "<td>" . $row[Detail] . "</td>"
                             . "<td>" . $row[Cost] . "</td>"
                             . "</tr>";
-                        echo"Item out of stock";
-
                     }
+
                     else{
                         echo "Item out of stock call store";
                         echo "<tr>"
@@ -237,6 +234,10 @@ class BootlegZon {
                             . "<td>" . "Item Out of Stock" . "</td>"
                             . "<td>" . $row[Detail] . "</td>";
 
+                    }
+                    if ($qty>0){
+                        $floatCost = (float) $row[Cost];
+                        $total = $total + $floatCost;
                     }
                 }
 
@@ -247,23 +248,31 @@ class BootlegZon {
 
 
             } // end if-statement
-        } // end foreach
-        echo "<hr>";
-        echo "<h3>Cart Total:</h3>";
-        echo "<table border = '1'>";
 
-        //display table headers
+        } // end foreach
+
         echo "<tr>
         <th>Total</th>
         </tr>";
-        $total = mysqli_query($conn,$cartTotalQuery) or die(mysqli_error($conn));
         echo "<tr>"
             ."<td>" . $total . "</td>";
+
+
+
+        //display table headers
+
 
         mysqli_free_result($items);
         mysqli_close($conn);
         echo "</table>";
+        echo "</table>";
 
+        echo "<input type=\"submit\" name=\"submit\" value=\"Checkout\"/>";
+
+        if (isset( $_POST['checkout'])) {
+            echo "yay";
+            mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+        }
     } // end showCart() function
 
 } // end BootlegZon class
