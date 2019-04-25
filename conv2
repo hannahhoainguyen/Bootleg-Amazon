@@ -1,0 +1,5 @@
+s/BootlegZon/BootlegZonBarry/; 
+s/CheckLogin.php/CheckLoginBarry.php/; 
+s/SignupClose.php/SignupCloseBarry.php/; 
+s/Cart.php/CartBarry.php/; 
+s/StoreFront.php/StoreFrontBarry.php/;
