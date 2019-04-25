@@ -182,7 +182,7 @@ class BootlegZon {
     # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items.
     public function showCart($checkBoxArray) {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
-
+        $chkBoxes4Buy = $checkBoxArray;
         //display the records in a table
         echo "<hr>";
         echo "<h3>Shopping Cart:</h3>";
@@ -276,7 +276,10 @@ class BootlegZon {
         mysqli_close($conn);
         echo "</table>";
         echo "</table>";
+        $_SESSION['totalCost'] = $total;
+        $_SESSION['chkBoxes4Buy'] = $chkBoxes4Buy;
 
+        echo "<form action=\"Checkout.php\" method=\"post\">";
         echo "<input type=\"submit\" name=\"submit\" value=\"Checkout\"/>";
 
         if (isset( $_POST['checkout'])) {
