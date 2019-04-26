@@ -1,3 +1,4 @@
+<?php
 include('BootlegZon.php');
 session_start();
 
