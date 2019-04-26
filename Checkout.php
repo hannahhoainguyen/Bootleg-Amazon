@@ -1,73 +1,22 @@
-<?php
-session_start();
-# Debugging
-/* print_r($_SESSION);
-echo "<p>";
-echo "just printed the whole session<br>";
-print_r($_SESSION['checkbox']);
-echo "just printed checkbox?<br>";
-echo $_SESSION['checkbox'][0];
-echo $_SESSION['checkbox'][1];
-echo "<p>"; */
-
 include('BootlegZon.php');
-$checkBoxArray = $_POST['checkbox'];
+session_start();
 
-$username = $_SESSION['uname'];
+/* This page simply attempts to log in the user. If success, it emits a message indicating this and allows the user to follow a link back to the store. If the login fails, the userAuth() method shunts the user to the BadUserPassword.php page.
+*/
 $obj = $_SESSION['object'];
-
-# Debugging
-# $kitty = $_SESSION['Toonces'];
-
-# Get the BootlegZon object stored in the $_SESSION
-$obj = $_SESSION['object'];
-
-# Debugging
-# var_dump($_SESSION);
-# var_dump($_POST);
-
-# Debugging
-/*
+$total = $_SESSION['totalCost'];
+$chkBoxes4Buy = $_SESSION['chkBoxes4Buy'];
+echo "Checkout page<p><p>";
+echo "Here's the total cost of your items: $" . $total;
 echo "<p>";
-foreach($_POST['checkbox'] as $selected){
-echo "Here" . $selected."<br>";
-} */
 
-?>
-
-<!-- Start web page   Start web page   Start web page     -->
-<html lang="en">
-
-<head>
-    <title>Checkout Page</title>
-</head>
-
-<body>
-
-<?php
-# Debugging
-# echo "Hello, this is the cart, " . $username . "<br>";
-# echo "And here is the identity of Toonces, " . $kitty . "<br>";
-# echo "Hello again.<br>";
-
-# print_r($checkBoxArray);
-# print_r($_SESSION['checkbox']);
-
-$obj = new BootlegZon();
-$obj->user = 'bfsmith_writer';
-$obj->password = 'd7WJWjLABFHzCqv8';
-$obj->dbase = 'BFSMITH_STORE';
-$obj->host = '132.198.101.199';
-$obj->port = 3306;
-
-$obj->checkoutQuery($checkBoxArray);
-
-echo "<p>";
-echo "<hr>";
-echo "<p>";
+echo "Here you can see the item numbers: <p>";
+foreach ($chkBoxes4Buy as $value) {
+    echo $value;
+    echo "<br>";
+    // code...
+}
+# $obj->userAuth();
+# $_SESSION['uname'] = $_POST[uname];
 echo '<p><a href="StoreFront.php">Back to store</a><p>';
-echo '<p><a href="Cart.php">Back to cart</a><p>';
-
 ?>
-</body>
-</html>
