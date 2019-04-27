@@ -119,6 +119,7 @@ class BootlegZonTestBarry {
                 ."<label for=\"cb".$row[ID]."\">"
                 ."<img src=\"data:image/jpeg;base64,".base64_encode($row[Img])."\"/>"
 		        ."</label>"
+                ."$row[Item]<br>$row[Cost]"
                 ."</li>";
 
 
