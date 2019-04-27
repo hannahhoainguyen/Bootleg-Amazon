@@ -280,13 +280,23 @@ class BootlegZon {
         $_SESSION['chkBoxes4Buy'] = $chkBoxes4Buy;
 
         echo "<form action=\"Checkout.php\" method=\"post\">";
-        echo "<input type=\"submit\" name=\"submit\" value=\"Checkout\"/>";
+        echo "<input type=\"submit\" name=\"submit1\" value=\"Checkout\"/>";
 
-        if (isset( $_POST['checkout'])) {
-            echo "yay";
+    } // end showCart() function
+    public function changeQuant($chkBoxes4Buy)
+    {
+        $this->user = 'bfsmith_writer';
+        $this->password = 'd7WJWjLABFHzCqv8';
+        $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
+        foreach ($chkBoxes4Buy as $value) {
+            $value = str_replace(".", "", $value);
+            $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $value ."';";
             mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
         }
-    } // end showCart() function
+
+    }
+
+
 
 } // end BootlegZon class
 ?>
