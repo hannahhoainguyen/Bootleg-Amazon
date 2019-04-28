@@ -43,6 +43,8 @@ The application stores item choices in an array that is carried around the site 
 ### Shopping Cart page
 The shopping cart page shows users' item choices, along with costs and quantity purchased (currently this defaults to '1'). At the same time, a shopping cart table in the database is cleared of any old data from previous shopping carts and populated with these choices. A total cost is also calculated and presented to the user. At the bottom of the shopping cart table is a "Checkout" button. Pushing this will bring users to the "Checkout" page.
 
+If the quantity of items in the store is zero or less, the user receives a message that these items are out of stock and that the store should be called.
+
 ### Checkout page
 The items purchased by the user and the total cost are carried to the Checkout page. That cost is presented to the user, along with a thank-you message. Behind the scenes, item quantity totals in the "Quantity" table are reduced by one for each item purchased. Users can then go back to the store front page if they wish to browse or purchase more items.
 
