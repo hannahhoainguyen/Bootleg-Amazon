@@ -135,41 +135,30 @@ class BootlegZon {
         echo "<h3>Merchandise:</h3>";
         echo "<table border = '1'>";
 
-        //Display table headers
-        echo "<tr>
-        <th>Choose</th>
-        <th>ID</th>
-        <th>Item</th>
-        <th>Cost</th>
-        <th>Quantity in Stock</th>
-        <th>Detail</th>
-        <th>Image</th>
-        </tr>";
-
         $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
         $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
         if (mysqli_num_rows($items) > 0) {
-
             echo "<form action=\"Cart.php\" method=\"post\">";
             /* This while-loop prints out the items, as can be seen
              * from the HTML below. As long as there's a row with
              * data in it in the table, it will print it out.
              * We can easily incorporate CSS into this.
              */
+            echo "<ul>";
             while($row = mysqli_fetch_assoc($items)) {
-            echo "<tr>"
-		    ."<td><input type=\"checkbox\" name=\"checkbox[]\" value = \". {$row[ID]}. \"></td>"
-		    ."<td>".$row[ID]."</td>"
-		    ."<td>".$row[Item]."</td>"
-		    ."<td>" .$row[Cost]. "</td>"
-		    ."<td>".$row[Quantity]."</td>"
-		    ."<td>".$row[Detail]."</td>"
-            .'<td><img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/></td>'
-		    ."</tr>";
+                echo "<li><input type=\"checkbox\" name=\"checkbox[]\" value = \". {$row[ID]} .\" id=\"cb".$row[ID]."\" />"
+                ."<label for=\"cb".$row[ID]."\">"
+                ."<img src=\"data:image/jpeg;base64,".base64_encode($row[Img])."\"/>"
+                ."</label>"
+                ."$row[Item]<br>"."$". "$row[Cost]"
+                ."<br>Quantity: ". "$row[Quantity]"
+                ."</li>";
             }
+            echo "</ul>";
         }
+
         mysqli_free_result($items);
         mysqli_close($conn);
         echo "</table>";

@@ -1,15 +1,22 @@
+/**********************HOVER EFFECTS***********************/
+
 div.gallery {
   border: 1px solid #ccc;
+  background-color: white;
 }
 
 div.gallery:hover {
   border: 1px solid #777;
 }
 
-div.gallery img {
+div.responsive img {
   width: 100%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/********************END OF HOVER EFFECTS********************/
 
 div.desc {
   padding: 15px;
@@ -20,27 +27,187 @@ div.desc {
   box-sizing: border-box;
 }
 
-.responsive {
-  padding: 0 6px;
+div.responsive {
+  padding: 6px;
   float: left;
   width: 24.99999%;
-}
-
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-  }
 }
 
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
+}
+
+/*********************Store Front Display *************************/
+body {
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
+  background-repeat: repeat;
+  background-color: black;
+
+}
+
+/*********************Store Front Display END *************************/
+
+/*********************Navigation *****************************/
+
+div.storehead {
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}
+
+#logo {
+  height: 10%;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+}
+
+.button {
+  display: inline-block;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+  border-radius: 28px;
+  color: white;
+  cursor: pointer;
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-left: .4em;
+  padding-right: .4em;
+  border: .05em solid;
+  margin-right: .5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+
+}
+
+#signup {
+  background-color: #ff5a5a;
+  border-color: #c01515;
+}
+
+#signup:hover {
+  background-color: white;
+  color: black;
+}
+
+#login {
+  background-color: #73acff;
+  border-color: #2079fc;
+  margin-left: 1em;
+
+}
+
+#login:hover {
+  background-color: white;
+  color: black;
+}
+
+#cart {
+  height: 2em;
+  width: 2em;
+  float: right;
+  margin-right: 1em;
+}
+
+/*********************Navigation END**********************************/
+
+/***********************GALLERY MOD*********************************/
+
+h3 {
+  text-align: center;
+  color: white;
+  margin-top: 25%;
+
+}
+
+/***********************GALLERY MOD END *********************************/
+
+/***********************LOGIN   *********************************/
+
+#inputForm {
+  margin-top: 25%;
+  color: black;
+  background-color: white;
+  font-family: 'Montserrat' ;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+input {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#submit {
+  margin-top: 1em;
+
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/***************************LOGIN END **********************************/
+
+/***************************CART ***********************************/
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  background-color: white;
+  margin: auto;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: .25em;
+  font-family: 'Montserrat';
+
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: lightgrey;
+}
+
+th {
+  padding-top: .2em;
+  padding-bottom: .2em;
+  color: white;
+  background-color: #73acff;
+}
+
+h3 {
+  font-family: 'Montserrat';
+}
+
+#back {
+  color: white;
+  font-family: 'Montserrat';
+  margin-left: 1em;
 }
