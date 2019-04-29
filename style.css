@@ -211,8 +211,13 @@ input {
 
 #submit {
   margin-top: 1em;
-
 }
+
+/*
+input[type=submit] {
+    width: 20em;  height: 2em;
+}
+*/
 
 fieldset {
   border: none;

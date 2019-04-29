@@ -40,9 +40,9 @@ class BootlegZon {
 
 
     public function displaySignUp() {
-        echo "<h1>Nebula Knick-Knacks</h1>";
-        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
-	echo "<hr><br>";
+    #echo "<h1>Nebula Knick-Knacks</h1>";
+    #echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
+	#echo "<hr><br>";
 
 	echo "<form action=\"SignupClose.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
@@ -128,11 +128,12 @@ class BootlegZon {
     /*  For main page: function that shows table of images/info on page
      Notice how PHP is simply echoing HTML throughout this code. */
     public function showMerch() {
+        echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"style.css\"/>";
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         //display the records in a table
         # echo "<hr>";
         echo "<h3>MERCHANDISE</h3>";
-        echo "<table border = '1'>";
+        # echo "<table border = '1'>";
 
         $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
@@ -160,7 +161,7 @@ class BootlegZon {
 
         mysqli_free_result($items);
         mysqli_close($conn);
-        echo "</table>";
+        # echo "</table>";
         echo "<input type=\"submit\" name=\"submit\" value=\"View cart\"/>";
         # echo '<a href = "Cart.php"><img src="Cart.png" id="cart"></a><br></div>';
 
@@ -169,10 +170,13 @@ class BootlegZon {
     } // end showMerch function
 
 
-    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items.
+    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items. Below, $checkBoxArray is an array of IDs for each item in the dbase.
     public function showCart($checkBoxArray) {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
+
+        # Save the IDs for the shopping cart in another array; we'll  use them in the changeQuant function for the checkout page
         $chkBoxes4Buy = $checkBoxArray;
+
         //display the records in a table
         echo "<hr>";
         echo "<h3>Shopping Cart:</h3>";
@@ -280,7 +284,10 @@ class BootlegZon {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         foreach ($chkBoxes4Buy as $value) {
             $value = str_replace(".", "", $value);
+            #$queryCheckNone = "SELECT 'Quantity' FROM MERCH WHERE ID = '" . $value ."';";
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $value ."';";
+            #$numberLeft = mysqli_query($conn, $queryCheckNone) or die(mysqli_error($conn));
+            #echo $numberLeft;
             mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
         }
 
