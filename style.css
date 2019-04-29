@@ -108,8 +108,16 @@ body {
   background-repeat: repeat;
   background-color: black;
   color: white;
-  font-family: 'Montserrat' ;
+  font-family: 'Montserrat';
 
+}
+
+h1 {
+    font-family: 'Montserrat';
+}
+
+h3 {
+    font-family: 'Montserrat';
 }
 
 .button {
@@ -145,12 +153,22 @@ body {
   background-color: #73acff;
   border-color: #2079fc;
   margin-left: 1em;
-
 }
 
 #login:hover {
   background-color: white;
   color: black;
+}
+
+#logout {
+  background-color: #73acff;
+  border-color: #2079fc;
+  margin-left: 1em;
+}
+
+#logout:hover {
+  background-color: black;
+  color: white;
 }
 
 #cart {
@@ -163,3 +181,48 @@ body {
 #text {
     color: white;
 }
+
+.blackText
+{
+    color: black;
+}
+
+/***********************LOGIN   *********************************/
+
+#inputForm {
+  margin-top: 10%;
+  color: black;
+  background-color: white;
+  font-family: 'Montserrat' ;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+input {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#submit {
+  margin-top: 1em;
+
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/***************************LOGIN END **********************************/
+
+

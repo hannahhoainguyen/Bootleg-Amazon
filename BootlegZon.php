@@ -25,11 +25,10 @@ class BootlegZon {
     public function displayLogin() {
         echo "<h1>Nebula Knick-Knacks</h1>";
         echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
-	echo "<hr><br>";
 
+    echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"style.css\"/>";
 	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
-	echo "<legend>Rockingham Store Login Page</legend>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
 	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
@@ -163,6 +162,8 @@ class BootlegZon {
         mysqli_close($conn);
         echo "</table>";
         echo "<input type=\"submit\" name=\"submit\" value=\"View cart\"/>";
+        # echo '<a href = "Cart.php"><img src="Cart.png" id="cart"></a><br></div>';
+
         echo "</form>";
         $_SESSION['checkbox[]'] = $_POST['checkbox[]'];
     } // end showMerch function
