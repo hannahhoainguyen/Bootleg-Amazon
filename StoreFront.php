@@ -9,11 +9,17 @@ session_start();
 ?>
   <head>
     <title>Nebula Knick-Knacks</title>
-  </head>
+    <meta charset="utf-8">
+    <meta name="author" content="Orbital Enterprises">
+    <meta name="description" content="Selling our space-related merchandise">
+    <link rel = "stylesheet" type = "text/css" href = "style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-  <body>
-  <h1>Nebula Knick-Knacks</h1>
-  <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
+  </head>
+  <div class="storehead">
+      <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
+
+ <body>
 
     <?php
     #ini_set('display_errors',1);
@@ -28,8 +34,11 @@ session_start();
     # Set up main page when a user is logged in
     if (isset($_SESSION["uname"])) {
       $username = $_SESSION["uname"];
-      echo "<i>" . $username . "</i> is logged in via post. <p>";
-      echo '<a href="Logout.php" >Logout</a><p>';
+      echo "<span class=\"blackText\"><i>&nbsp&nbsp" . $username . "</i> is logged in via post</span>. <p>";
+      # echo '<a href="Logout.php" >Logout</a><p>';
+      echo '<a href = "Logout.php" id="logout" class="button">Logout</a>';
+      echo '<a href = "Cart.php"><img src="Cart.png" id="cart"></a><br></div>';
+      echo '<div class="space"></div>';
 
       # Set up connection to database
       $obj->displayProcessing();
@@ -49,8 +58,10 @@ session_start();
 
     # Set up main page when a user is *not* logged in
     else {
-      echo '<a href = "SimpleLogin.php">Sign in</a><p>';
-      echo '<a href = "SimpleSignUp.php">Create a new account</a><p>';
+      echo '<a href = "SimpleLogin.php" id="login" class="button">Sign in</a>';
+      echo '<a href = "SimpleSignUp.php" id="signup" class="button">Create a new account</a>';
+      echo '<a href = "#Cart"><img src="Cart.png" id="cart"></a><br></div>';
+      echo '<div class="space"></div>';
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';

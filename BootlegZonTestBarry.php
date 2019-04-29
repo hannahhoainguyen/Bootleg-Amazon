@@ -133,7 +133,7 @@ class BootlegZonTestBarry {
         #echo "</div>";
 
         # Button to show cart, which brings user to a separate cart page
-        echo "<form action=cart.php>";
+        echo "<form action=CartTestBarry.php>";
         echo "<input type=\"submit\" value=\"View cart\" />";
         echo "</form>";
 

@@ -11,7 +11,7 @@ echo $_SESSION['checkbox'][0];
 echo $_SESSION['checkbox'][1];
 echo "<p>"; */
 
-include('BootlegZon.php');
+include('BootlegZonTestBarry.php');
 $checkBoxArray = $_POST['checkbox'];
 
 $username = $_SESSION['uname'];
@@ -41,16 +41,9 @@ echo "Here" . $selected."<br>";
 
   <head>
     <title>Nebula Knick Knacks Shopping Cart</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
-
   </head>
-  <body>
 
-  <div class="storehead">
-      <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
-</div>
+  <body>
 
     <?php
     # Debugging
@@ -61,7 +54,7 @@ echo "Here" . $selected."<br>";
     # print_r($checkBoxArray);
     # print_r($_SESSION['checkbox']);
 
-    $obj = new BootlegZon();
+    $obj = new BootlegZonTestBarry();
     $obj->user = 'bfsmith_writer';
     $obj->password = 'd7WJWjLABFHzCqv8';
     $obj->dbase = 'BFSMITH_STORE';
@@ -73,7 +66,7 @@ echo "Here" . $selected."<br>";
     echo "<p>";
     echo "<hr>";
     echo "<p>";
-    echo '<p><a href="StoreFront.php" id="back">Back to store</a><p>';
+    echo '<p><a href="StoreFront.php">Back to store</a><p>';
 
 
     ?>

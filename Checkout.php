@@ -1,9 +1,27 @@
 <?php
 include('BootlegZon.php');
 session_start();
+// This is the checkout page
+?>
 
-/* This page simply attempts to log in the user. If success, it emits a message indicating this and allows the user to follow a link back to the store. If the login fails, the userAuth() method shunts the user to the BadUserPassword.php page.
-*/
+<html lang="en">
+
+<head>
+<title>Nebula Knick Knacks Checkout Page</title>
+<link rel = "stylesheet" type = "text/css" href = "style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+<div class="storehead">
+      <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
+</div>
+<div class="space"></div>
+
+<?php
+
+
+
+
 $total = $_SESSION['totalCost'];
 $obj = $_SESSION['object'];
 $obj1 = new BootlegZon();

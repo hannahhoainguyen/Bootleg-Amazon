@@ -22,14 +22,16 @@ class BootlegZon {
     var $table;
 
     # CLASS METHODS BELOW HERE ---------------
-    public function displayLogin() {
-        echo "<h1>Nebula Knick-Knacks</h1>";
-        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
-	echo "<hr><br>";
 
+    # Method to diplay HTML for login page, to allow existing users to log in
+    public function displayLogin() {
+        # echo "<h1>Nebula Knick-Knacks</h1>";
+        # echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
+
+    echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"style.css\"/>";
 	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
-	echo "<legend>Rockingham Store Login Page</legend>";
+	echo "<legend>Nebula Knick-Knacks Login Page</legend>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
 	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
@@ -38,21 +40,19 @@ class BootlegZon {
 
 	} // end displayLogin function
 
-
-
+    # Method to display the HTML for the signup page, for new users
     public function displaySignUp() {
-        echo "<h1>Nebula Knick-Knacks</h1>";
-        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
-	echo "<hr><br>";
 
 	echo "<form action=\"SignupClose.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
 	echo "<legend>Nebula Knick-Knacks Signup Page</legend>";
+echo "<div class=\"spaceSignup\"></div>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
     echo "<p>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
     echo "<br>";
 	echo "<label for=\"name\">Repeat password:</label><input type='password' id=\"upasswd2\" name='upasswd2'>";
+    echo "<p>";
 	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
 	echo "</fieldset>";
 	echo "</form>";
@@ -62,6 +62,7 @@ class BootlegZon {
     # This function is only used to start a clean, new html page.
     public function displayProcessing() {
 	}
+
 
     # Method to authenticate users, who should be in the 'customers' table
     public function userAuth() {
@@ -100,6 +101,7 @@ class BootlegZon {
 
     } // end userAuth function
 
+
     # Method to add new users to database
     public function addCustomer() {
 
@@ -126,63 +128,60 @@ class BootlegZon {
     } // end addCustomer
 
 
-    /*  For main page: function that shows table of images/info on page
+
+    /*  For main page (StoreFront): method that shows grid of images/info on page
      Notice how PHP is simply echoing HTML throughout this code. */
     public function showMerch() {
+        echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"style.css\"/>";
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         //display the records in a table
-        echo "<hr>";
-        echo "<h3>Merchandise:</h3>";
-        echo "<table border = '1'>";
-
-        //Display table headers
-        echo "<tr>
-        <th>Choose</th>
-        <th>ID</th>
-        <th>Item</th>
-        <th>Cost</th>
-        <th>Quantity in Stock</th>
-        <th>Detail</th>
-        <th>Image</th>
-        </tr>";
+        # echo "<hr>";
+        echo "<h3>MERCHANDISE</h3>";
+        # echo "<table border = '1'>";
 
         $this->table = 'MERCH';
         $query = "Select * FROM ".$this->table.";";
         $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
         if (mysqli_num_rows($items) > 0) {
-
             echo "<form action=\"Cart.php\" method=\"post\">";
             /* This while-loop prints out the items, as can be seen
              * from the HTML below. As long as there's a row with
              * data in it in the table, it will print it out.
              * We can easily incorporate CSS into this.
              */
+            echo "<ul>";
             while($row = mysqli_fetch_assoc($items)) {
-            echo "<tr>"
-		    ."<td><input type=\"checkbox\" name=\"checkbox[]\" value = \". {$row[ID]}. \"></td>"
-		    ."<td>".$row[ID]."</td>"
-		    ."<td>".$row[Item]."</td>"
-		    ."<td>" .$row[Cost]. "</td>"
-		    ."<td>".$row[Quantity]."</td>"
-		    ."<td>".$row[Detail]."</td>"
-            .'<td><img src="data:image/jpeg;base64,'.base64_encode($row[Img]).'"/></td>'
-		    ."</tr>";
+                echo "<li><input type=\"checkbox\" name=\"checkbox[]\" value = \". {$row[ID]} .\" id=\"cb".$row[ID]."\" />"
+                ."<label for=\"cb".$row[ID]."\">"
+                ."<img src=\"data:image/jpeg;base64,".base64_encode($row[Img])."\"/>"
+                ."</label>"
+                ."$row[Item]<br>"."$". "$row[Cost]"
+                ."<br>Quantity: ". "$row[Quantity]"
+                ."</li>";
             }
+            echo "</ul>";
         }
+
         mysqli_free_result($items);
         mysqli_close($conn);
-        echo "</table>";
+        # echo "</table>";
         echo "<input type=\"submit\" name=\"submit\" value=\"View cart\"/>";
+        # echo '<a href = "Cart.php"><img src="Cart.png" id="cart"></a><br></div>';
+
         echo "</form>";
         $_SESSION['checkbox[]'] = $_POST['checkbox[]'];
-    } // end showMerch function
+    } // end showMerch method
 
 
-    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items.
+
+    # The showCart() method - allows users to see a shopping-cart page, where they can see their currently-chosen items. Below, $checkBoxArray is an array of IDs for each item in the dbase.
     public function showCart($checkBoxArray) {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
+
+        # Save the IDs for the shopping cart in another array; we'll  use them in the changeQuant function for the checkout page
         $chkBoxes4Buy = $checkBoxArray;
+
         //display the records in a table
         echo "<hr>";
         echo "<h3>Shopping Cart:</h3>";
@@ -212,15 +211,14 @@ class BootlegZon {
 
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $carrier . "';";
             $checkQtyQuery = "Select Quantity FROM ".$this->table." WHERE ID = '".$carrier ."';";
-            //$queryAddToCart = "INSERT INTO " . $this->table. " VALUES (" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
-
             $items = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+            # If something has been chosen from the front page, do something with it
             if (mysqli_num_rows($items) > 0) {
                 // Print out the items
                 while($row = mysqli_fetch_assoc($items)) {
                     $qty = $row[Quantity];
                     if($qty > 0) {
-                       # mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
                         echo "<tr>"
                             . "<td>" . $row[ID] . "</td>"
                             . "<td>" . $row[Item] . "</td>"
@@ -228,21 +226,16 @@ class BootlegZon {
                             . "<td>" . $row[Detail] . "</td>"
                             . "<td>" . $row[Cost] . "</td>"
                             . "</tr>";
-                        # $cost2 = float($row[Cost]);
-                        # $cost = $cost + $cost2;
-                        # echo $cost;
-                        # Experiment
+
+                        # Add to the cart table
                         $this->table = 'cart';
                         $queryAddToCart = "Insert INTO " . $this->table . " (itemno, item, number, detail) VALUES ('" . $row[ID]."', '". $row[Item] ."', " . 1 .", '" . $row[Detail] ."');";
-                        #$queryAddToCart = "Insert INTO cart (itemno, item, number, detail) VALUES ('$row[ID]', '$row[Item]', 1,  '$row[Detail]');";
-                        #echo $this->table;
                         mysqli_query($conn, $queryAddToCart) or die(mysqli_error($conn));
 
                         $this->table = 'MERCH';
-
                     }
 
-                    else{
+                    else {
                         echo "Item out of stock call store";
                         echo "<tr>"
                             . "<td>" . $row[ID] . "</td>"
@@ -256,21 +249,13 @@ class BootlegZon {
                         $total = $total + $floatCost;
                     }
                 }
-
             } // end if-statement
         } // end foreach
-
 
         echo "<tr>
         <th>Total</th>
         </tr>";
-        echo "<tr>"
-            ."<td>" . $total . "</td>";
-
-
-
-        //display table headers
-
+        echo "<tr>" ."<td>" . $total . "</td>";
 
         mysqli_free_result($items);
         mysqli_close($conn);
@@ -283,6 +268,9 @@ class BootlegZon {
         echo "<input type=\"submit\" name=\"submit1\" value=\"Checkout\"/>";
 
     } // end showCart() function
+
+
+    # Change quantity method - update quantity of items in stock
     public function changeQuant($chkBoxes4Buy)
     {
         $this->user = 'bfsmith_writer';
@@ -290,13 +278,22 @@ class BootlegZon {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         foreach ($chkBoxes4Buy as $value) {
             $value = str_replace(".", "", $value);
+            $queryCheckNone = "SELECT Quantity FROM MERCH WHERE ID = '" . $value ."';";
             $queryMinusOne = "UPDATE MERCH SET Quantity = Quantity - 1 WHERE ID = '". $value ."';";
-            mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+
+            /* Check to make sure more than 0 items, so we don't subtract and
+            * have negative quantities in stock */
+            $whatsLeft = mysqli_query($conn, $queryCheckNone) or die(mysqli_error($conn));
+            $numberLeft = mysqli_fetch_assoc($whatsLeft);
+
+            # Subtract items from stock when nonzero quantity
+            foreach($numberLeft as $quant) {
+                if ($quant > 0) {
+                    mysqli_query($conn, $queryMinusOne) or die(mysqli_error($conn));
+                }
+            }
         }
-
-    }
-
-
+    } // end changeQuant method
 
 } // end BootlegZon class
 ?>
