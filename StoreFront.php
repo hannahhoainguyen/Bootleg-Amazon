@@ -9,84 +9,17 @@ session_start();
 ?>
   <head>
     <title>Nebula Knick-Knacks</title>
-
-    <style type="text/css">
-
-    ul {
-      list-style-type: none;
-    }
-
-    li {
-      display: inline-block;
-    }
-
-    input[type="checkbox"][id^="cb"] {
-      display: none;
-    }
-
-    label {
-      border: 1px solid #fff;
-      padding: 10px;
-      display: block;
-      position: relative;
-      margin: 10px;
-      cursor: pointer;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    label::before {
-      background-color: white;
-      color: white;
-      content: " ";
-      display: block;
-      border-radius: 50%;
-      border: 1px solid grey;
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: 25px;
-      height: 25px;
-      text-align: center;
-      line-height: 28px;
-      transition-duration: 0.4s;
-      transform: scale(0);
-    }
-
-    label img {
-      height: 200px;
-      width: 200px;
-      transition-duration: 0.2s;
-      transform-origin: 50% 50%;
-    }
-
-    :checked+label {
-      border-color: #ddd;
-    }
-
-    :checked+label::before {
-      content: "✓";
-      background-color: grey;
-      transform: scale(1);
-    }
-
-    :checked+label img {
-      transform: scale(0.9);
-      box-shadow: 0 0 5px #333;
-      z-index: -1;
-    }
-
-    </style>
+    <meta charset="utf-8">
+    <meta name="author" content="Orbital Enterprises">
+    <meta name="description" content="Selling our space-related merchandise">
+    <link rel = "stylesheet" type = "text/css" href = "style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
   </head>
+  <div class="storehead">
+      <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
 
-  <body>
-  <h1>Nebula Knick-Knacks</h1>
-  <h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>
+ <body>
 
     <?php
     #ini_set('display_errors',1);
@@ -122,8 +55,12 @@ session_start();
 
     # Set up main page when a user is *not* logged in
     else {
-      echo '<a href = "SimpleLogin.php">Sign in</a><p>';
-      echo '<a href = "SimpleSignUp.php">Create a new account</a><p>';
+      #echo '<a href = "SimpleLogin.php">Sign in</a><p>';
+      #echo '<a href = "SimpleSignUp.php">Create a new account</a><p>';
+      echo '<a href = "SimpleLogin.php" id="login" class="button">Sign in</a>';
+      echo '<a href = "SimpleSignUp.php" id="signup" class="button">Create a new account</a>';
+      echo '<a href = "#Cart"><img src="Cart.png" id="cart"></a><br></div>';
+      echo '<div class="space"></div>';
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
       $obj->password = 'Xm8av2CKT7rSG2k7';

@@ -131,8 +131,8 @@ class BootlegZon {
     public function showMerch() {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->dbase, $this->port);
         //display the records in a table
-        echo "<hr>";
-        echo "<h3>Merchandise:</h3>";
+        # echo "<hr>";
+        echo "<h3>MERCHANDISE</h3>";
         echo "<table border = '1'>";
 
         $this->table = 'MERCH';
