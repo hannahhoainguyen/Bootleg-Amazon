@@ -41,9 +41,16 @@ echo "Here" . $selected."<br>";
 
   <head>
     <title>Nebula Knick Knacks Shopping Cart</title>
-  </head>
+    <link rel = "stylesheet" type = "text/css" href = "style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+
+  </head>
   <body>
+
+  <div class="storehead">
+      <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
+</div>
 
     <?php
     # Debugging
@@ -66,7 +73,7 @@ echo "Here" . $selected."<br>";
     echo "<p>";
     echo "<hr>";
     echo "<p>";
-    echo '<p><a href="StoreFront.php">Back to store</a><p>';
+    echo '<p><a href="StoreFront.php" id="back">Back to store</a><p>';
 
 
     ?>
