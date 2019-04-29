@@ -14,6 +14,7 @@ session_start();
 <div class="storehead">
       <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
 </div>
+<div class="spaceSignup"></div>
 
 <?php
 # This file creates a blank page allowing the displaySignUp() to show a username/password entry form.

@@ -23,12 +23,13 @@ class BootlegZon {
 
     # CLASS METHODS BELOW HERE ---------------
     public function displayLogin() {
-        echo "<h1>Nebula Knick-Knacks</h1>";
-        echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
+        # echo "<h1>Nebula Knick-Knacks</h1>";
+        # echo "<h3><i>Orbital Enterprises Beta Website for CS205 Final Project</i></h3>";
 
     echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"style.css\"/>";
 	echo "<form action=\"CheckLogin.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
+	echo "<legend>Nebula Knick-Knacks Login Page</legend>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
 	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
@@ -47,11 +48,13 @@ class BootlegZon {
 	echo "<form action=\"SignupClose.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
 	echo "<legend>Nebula Knick-Knacks Signup Page</legend>";
+echo "<div class=\"spaceSignup\"></div>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
     echo "<p>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";
     echo "<br>";
 	echo "<label for=\"name\">Repeat password:</label><input type='password' id=\"upasswd2\" name='upasswd2'>";
+    echo "<p>";
 	echo "<input type=\"submit\" name = 'Submit' value = 'Submit'>";
 	echo "</fieldset>";
 	echo "</form>";
