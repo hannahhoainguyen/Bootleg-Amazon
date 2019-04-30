@@ -1,6 +1,6 @@
 <?php
 #session_start();
-/* BARRY SMITH CS205 FINAL PROJECT */
+/* BARRY SMITH, CHRIS ERKSON, HANNAH NGUYEN, JARED CARLSON - CS205 FINAL PROJECT */
 
 /* This is the file that contains the one class used by our online store project for CS205. It has methods in it for logging in, connecting to our database as a user, displaying the main page, and displaying the shopping cart.
 */
@@ -46,7 +46,7 @@ class BootlegZon {
 	echo "<form action=\"SignupClose.php\" method=\"POST\" id='inputForm' name=\"userLogin\">";
 	echo "<fieldset>";
 	echo "<legend>Nebula Knick-Knacks Signup Page</legend>";
-echo "<div class=\"spaceSignup\"></div>";
+    echo "<div class=\"spaceSignup\"></div>";
 	echo "<label for=\"name\">Username:</label><input type='text' id=\"uname\" name='uname'>";
     echo "<p>";
 	echo "<label for=\"name\">Password:</label><input type='password' id=\"upasswd\" name='upasswd'>";

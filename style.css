@@ -1,4 +1,4 @@
-/* NEW "CHECKBOX" EFFECTS */
+/* "CHECKBOX" EFFECTS */
 ul {
   list-style-type: none;
 }
@@ -67,9 +67,9 @@ label img {
   box-shadow: 0 0 5px #333;
   z-index: -1;
 }
-/* NEW "CHECKBOX" EFFECTS ABOVE HERE */
+/* "CHECKBOX" EFFECTS ABOVE HERE */
 
-/* STOREHEAD */
+/* STOREHEAD CSS */
 div.storehead {
   background-color: white;
   position: fixed;
@@ -102,98 +102,11 @@ z-index: 999;
 .spaceSignup
 {
     width: 100%;
-    height: 150px;
+    height: 5px;
 }
 /* STOREHEAD ABOVE HERE */
 
-body {
-  margin-top: 130px;
-  padding: 0;
-  width: 100%;
-  background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
-  background-repeat: repeat;
-  background-color: black;
-  color: white;
-  font-family: 'Montserrat';
-
-}
-
-h1 {
-    font-family: 'Montserrat';
-}
-
-h3 {
-    font-family: 'Montserrat';
-}
-
-.button {
-  display: inline-block;
-  -moz-border-radius: 28px;
-  -webkit-border-radius: 28px;
-  border-radius: 28px;
-  color: white;
-  cursor: pointer;
-  padding-top: .2em;
-  padding-bottom: .2em;
-  padding-left: .4em;
-  padding-right: .4em;
-  border: .05em solid;
-  margin-right: .5em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-
-
-}
-
-#signup {
-  background-color: #ff5a5a;
-  border-color: #c01515;
-}
-
-#signup:hover {
-  background-color: white;
-  color: black;
-}
-
-#login {
-  background-color: #73acff;
-  border-color: #2079fc;
-  margin-left: 1em;
-}
-
-#login:hover {
-  background-color: white;
-  color: black;
-}
-
-#logout {
-  background-color: #73acff;
-  border-color: #2079fc;
-  margin-left: 1em;
-}
-
-#logout:hover {
-  background-color: black;
-  color: white;
-}
-
-#cart {
-  height: 2em;
-  width: 2em;
-  float: right;
-  margin-right: 1em;
-}
-
-#text {
-    color: white;
-}
-
-.blackText
-{
-    color: black;
-}
-
-/***********************LOGIN   *********************************/
+/***********************LOGIN *********************************/
 
 #inputForm {
   margin-top: 10%;
@@ -217,12 +130,6 @@ input {
 #submit {
   margin-top: 1em;
 }
-
-/*
-input[type=submit] {
-    width: 20em;  height: 2em;
-}
-*/
 
 fieldset {
   border: none;
@@ -279,4 +186,92 @@ h3 {
   font-family: 'Montserrat';
   margin-left: 1em;
 }
-/***************************CART  ABOVE HERE ****************************/
+/***************************CART ABOVE HERE ****************************/
+
+/*   MISC */
+body {
+  margin-top: 130px;
+  padding: 0;
+  width: 100%;
+  background-image: url("https://opengameart.org/sites/default/files/seamless%20space_0.PNG");
+  background-repeat: repeat;
+  background-color: black;
+  color: white;
+  font-family: 'Montserrat';
+
+}
+
+h1 {
+    font-family: 'Montserrat';
+}
+
+h3 {
+    font-family: 'Montserrat';
+}
+
+.button {
+  display: inline-block;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+  border-radius: 28px;
+  color: white;
+  cursor: pointer;
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-left: .4em;
+  padding-right: .4em;
+  border: .05em solid;
+  margin-right: .5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+}
+
+#signup {
+  background-color: #ff5a5a;
+  border-color: #c01515;
+}
+
+#signup:hover {
+  background-color: white;
+  color: black;
+}
+
+#login {
+  background-color: #73acff;
+  border-color: #2079fc;
+  margin-left: 1em;
+}
+
+#login:hover {
+  background-color: white;
+  color: black;
+}
+
+#logout {
+  background-color: #73acff;
+  border-color: #2079fc;
+  margin-left: 1em;
+}
+
+#logout:hover {
+  background-color: black;
+  color: white;
+}
+
+#cart {
+  height: 2em;
+  width: 2em;
+  float: right;
+  margin-right: 1em;
+}
+
+#text {
+    color: white;
+}
+
+.blackText
+{
+    color: black;
+}
+
