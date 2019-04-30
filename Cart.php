@@ -1,38 +1,19 @@
 <?php
 session_start();
 
-# Debugging
-/* print_r($_SESSION);
-echo "<p>";
-echo "just printed the whole session<br>";
-print_r($_SESSION['checkbox']);
-echo "just printed checkbox?<br>";
-echo $_SESSION['checkbox'][0];
-echo $_SESSION['checkbox'][1];
-echo "<p>"; */
-
+/* This is the Cart page - the Shopping Cart. This is where users arrive after
+pressing the "View cart" button at the bottom of the StoreFront page.
+*/
 include('BootlegZon.php');
 $checkBoxArray = $_POST['checkbox'];
 
 $username = $_SESSION['uname'];
-$obj = $_SESSION['object'];
 
 # Debugging
 # $kitty = $_SESSION['Toonces'];
 
 # Get the BootlegZon object stored in the $_SESSION
 $obj = $_SESSION['object'];
-
-# Debugging
-# var_dump($_SESSION);
-# var_dump($_POST);
-
-# Debugging
-/*
-echo "<p>";
-foreach($_POST['checkbox'] as $selected){
-echo "Here" . $selected."<br>";
-} */
 
 ?>
 
@@ -44,23 +25,16 @@ echo "Here" . $selected."<br>";
     <link rel = "stylesheet" type = "text/css" href = "style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-
   </head>
   <body>
 
   <div class="storehead">
       <img src="WebsiteLogo.png" alt="Orbital Enterprises" id="logo">
-</div>
+  </div>
 
     <?php
-    # Debugging
-    # echo "Hello, this is the cart, " . $username . "<br>";
-    # echo "And here is the identity of Toonces, " . $kitty . "<br>";
-    # echo "Hello again.<br>";
 
-    # print_r($checkBoxArray);
-    # print_r($_SESSION['checkbox']);
-
+    # Created a new object - not sure this was necessary
     $obj = new BootlegZon();
     $obj->user = 'bfsmith_writer';
     $obj->password = 'd7WJWjLABFHzCqv8';
@@ -68,13 +42,13 @@ echo "Here" . $selected."<br>";
     $obj->host = '132.198.101.199';
     $obj->port = 3306;
 
+    # Show the cart, via a method from the BootlegZon class
     $obj->showCart($checkBoxArray);
 
     echo "<p>";
     echo "<hr>";
     echo "<p>";
     echo '<p><a href="StoreFront.php" id="back">Back to store</a><p>';
-
 
     ?>
   </body>

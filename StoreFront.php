@@ -60,7 +60,7 @@ session_start();
     else {
       echo '<a href = "SimpleLogin.php" id="login" class="button">Sign in</a>';
       echo '<a href = "SimpleSignUp.php" id="signup" class="button">Create a new account</a>';
-      echo '<a href = "#Cart"><img src="Cart.png" id="cart"></a><br></div>';
+       echo '<a href = "#Cart"><img src="Cart.png" id="cart"></a><br></div>';
       echo '<div class="space"></div>';
       $obj->displayProcessing();
       $obj->user = 'bfsmith_reader';
